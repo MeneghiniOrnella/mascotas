@@ -1,6 +1,6 @@
-# MASCOTAS🐶🐺🐰
+# PERROS🐶
 ## Definición
-Programa para selección de avatares de mascotas según lo que elija el usuario. 
+Programa para selección de avatares de perros según lo que elija el usuario. 
 ## Objetivo
 Es un proyecto que será presentado como trabajo final integrador de Codo a Codo Python Fullstack.
 ## Integrantes
