@@ -1,4 +1,4 @@
-# MASCOTAS
+# MASCOTAS🐶🐺🐰
 ## Definición
 Programa para selección de avatares de mascotas según lo que elija el usuario. 
 ## Objetivo
