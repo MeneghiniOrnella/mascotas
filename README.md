@@ -1,0 +1,2 @@
+# mascotas
+Proyecto grupal
