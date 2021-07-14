@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario</title>
 </head>
 <body>
     <form method="post" action="/store" enctype="multipart/form-data">
         Nombre:
-            <input type="text" name="txtNombre" id="txtNombre">
+            <input type="text" name="nameForm" id="nameForm">
             <br>
         Género:
-            <select name="genero" id="genero">
+            <select name="sex" id="sex">
                 <option value="hembra">Hembra</option>
                 <option value="macho">Macho</option>
             </select>
             <br>
         Edad:
-            <input type="text" name="edad" id="edad">
+            <input type="number" name="age" id="age">
+            <br>
+        Color:
+            <input type="color" name="colorForm" id="colorForm">
             <br>
     </form>
 </body>
