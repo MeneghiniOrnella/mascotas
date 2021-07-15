@@ -14,10 +14,10 @@
     <h2>Datos de la mascota y su dueño</h2>
     <form method="post" action="/store" enctype="multipart/form-data">
         Nombre:
-            <input type="text" name="nameForm" id="nameForm">
+            <input type="text" name="nameForm" id="nameForm" placeholder="Papuchi">
             <br>
         Especie:
-            <input type="text" name="especie" id="especie">
+            <input type="text" name="especie" id="especie" placeholder="perro">
             <br>
         Género:
             <select name="sex" id="sex">
@@ -25,20 +25,24 @@
                 <option value="macho">Macho</option>
             </select>
             <br>
-        Fecha de nacimiento:
+        Nombre y apellido del dueño:
+            <input type="text" name="nameOwner" id="nameOwner" placeholder="Juan">
+            <input type="text" name="surname" id="surname" placeholder="Doe">
+            <br>
+            Fecha de nacimiento:
             <input type="date" name="dateBorn" id="dateBorn">
             <br>
         Color:
             <input type="color" name="colorForm" id="colorForm">
             <br>
         Dirección:
-            <input type="text" name="adress" id="adress">
+            <input type="text" name="adress" id="adress" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
             <br>
         Teléfono:
-            <input type="tel" name="tel" id="tel">
+            <input type="tel" name="tel" id="tel" placeholder="1122223333">
             <br>
         Estado:
-            <input type="text" name="stateForm" id="stateForm">
+            <input type="text" name="stateForm" id="stateForm" placeholder="sano">
             <br>
         Foto:
             <input type="image" src="" alt="">
