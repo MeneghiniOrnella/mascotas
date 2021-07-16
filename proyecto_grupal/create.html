@@ -15,12 +15,12 @@
     <h2>Datos de la mascota y su dueño</h2>
     <form method="post" action="/store" enctype="multipart/form-data">
         Nombre:
-            <input type="text" name="nameForm" id="nameForm" placeholder="Papuchi">
+            <input type="text" name="nameForm" id="nameForm" placeholder="Papuchi" required>
         Id de paciente:
-            <input type="number" name="idForm" id="idForm" placeholder="101">
+            <input type="number" name="idForm" id="idForm" placeholder="101" required>
             <br>
         Especie:
-            <input type="text" name="especie" id="especie" placeholder="perro">
+            <input type="text" name="especie" id="especie" placeholder="perro" required>
         Género:
             <select name="sex" id="sex">
                 <option value="hembra">Hembra</option>
@@ -34,8 +34,8 @@
             <input type="color" name="colorForm" id="colorForm">
             <br>
         Nombre y apellido del dueño:
-            <input type="text" name="nameOwner" id="nameOwner" placeholder="Juan">
-            <input type="text" name="surname" id="surname" placeholder="Doe">
+            <input type="text" name="nameOwner" id="nameOwner" placeholder="Juan" required>
+            <input type="text" name="surname" id="surname" placeholder="Doe" required>
             <br>
         Dirección:
             <input type="text" name="adress" id="adress" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">

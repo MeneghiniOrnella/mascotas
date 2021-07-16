@@ -1,6 +1,5 @@
 body{
     margin: 1rem 2rem 1rem 2rem;
-    text-align: left;
     text-decoration: none;
     background-color: rgb(240, 240, 202);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,4 +18,5 @@ button{
     border-radius: 0.4em;
     padding: 0.5rem 10rem;
     font-size: 1.2rem;
+    justify-content: center;
 }
