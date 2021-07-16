@@ -1,21 +1,22 @@
 body{
     margin: 1rem 2rem 1rem 2rem;
-    text-align: justify;
+    text-align: left;
     text-decoration: none;
-    background-color: rgb(218, 243, 155);
+    background-color: rgb(240, 240, 202);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
-}
-form{
-    display: grid;
-    grid-template: 1 1;
 }
 input{
     background-color: whitesmoke;
     padding: 0.3rem 3rem;
-    
+    margin: 0.4%;   
 }
 button{
-    background-color: white;
-    padding: 0.6rem 4rem;
+    background-color: rgb(143, 0, 0);
+    font-stretch: expanded;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 0.4em;
+    padding: 0.5rem 10rem;
+    font-size: 1.2rem;
 }
