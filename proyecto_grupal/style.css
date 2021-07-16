@@ -1,5 +1,21 @@
 body{
-    background-color: rgb(243, 248, 230);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 1rem 2rem 1rem 2rem;
+    text-align: justify;
+    text-decoration: none;
+    background-color: rgb(218, 243, 155);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
+}
+form{
+    display: grid;
+    grid-template: 1 1;
+}
+input{
+    background-color: whitesmoke;
+    padding: 0.3rem 3rem;
+    
+}
+button{
+    background-color: white;
+    padding: 0.6rem 4rem;
 }
