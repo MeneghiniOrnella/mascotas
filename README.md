@@ -1,6 +1,6 @@
-# GATOS
+# BD Veterinaria
 ## Definición
-Programa para selección de avatares de gatos según lo que elija el usuario. 
+Programa para agregar, editar y eliminar pacientes de una base de datos creada para una veterinaria.
 ## Objetivo
 Es un proyecto que será presentado como trabajo final integrador de Codo a Codo Python Fullstack.
 ## Integrantes
