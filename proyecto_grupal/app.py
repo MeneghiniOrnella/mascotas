@@ -1,9 +1,11 @@
+'''
+--------------------------------------------------------------------------------CODIGO BORRADO--------------------------------------------------------------------------------
 from flask import Flask
-from flask import render_template,request
+from flask import render_template #ELIMINAR REQUEST POR AHORA
 from flaskext.mysql import MySQL
 from datetime import datetime
 
-app= Flask(__name__)
+app = Flask(__name__)
 
 mysql= MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
@@ -19,11 +21,11 @@ def index():
     cursor= conn.cursor()
     cursor.execute(sql)
     conn.commit()
-    return render_template('templates\index.html')
+    return render_template('templates/index.html')
 
 @app.route("/create")
 def create():
-    return render_template('templates\create.html')
+    return render_template('templates/create.html')
 
 @app.route("/connect, methods=['POST']")
 def storage():
@@ -59,7 +61,15 @@ def storage():
     print(mascotas)
     conn.commit()
     return render_template('templates/index.html')
+'''
+from flask import Flask
+from flask import render_template
 
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('empleados/index.html')
 
 if __name__== '__main__':
     app.run(debug=True)
