@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
@@ -30,25 +31,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            {% for mascotas in mascotas %}
+                <tr>
+                    <td>[mascota[0]]</td>
+                    <td>[mascota[1]]</td>
+                    <td>[mascota[2]]</td>
+                    <td>[mascota[3]]</td>
+                    <td>[mascota[4]]</td>
+                    <td>[mascota[5]]</td>
+                    <td>[mascota[6]]</td>
+                    <td>[mascota[7]]</td>
+                    <td>[mascota[8]]</td>
+                    <td>[mascota[9]]</td>
+                    <td>[mascota[10]]</td>
+                    <td>[mascota[11]]</td>
+                    <td>[mascota[12]]</td>
+                    <td>[mascota[13]]</td>
+                    <td>[mascota[14]]</td>
+                    <td>[mascota[15]]</td>
+                    <td><a href="/destroy/"><i class="fas fa-backspace"></i></a> | <a href=""><i class="fas fa-edit"></i></a></td>
             </tr>
+            {% endfor %}
+            
         </tbody>
     </table>
 </body>
