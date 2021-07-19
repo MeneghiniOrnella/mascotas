@@ -1,18 +1,60 @@
 Formulario para Editar
 {% for mascota in pacientes_mascotas %}
-{{mascota[0]}}
-{{mascota[1]}}
-{{mascota[2]}}
-{{mascota[3]}}
-{{mascota[4]}}
-{{mascota[5]}}
-{{mascota[6]}}
-{{mascota[7]}}
-{{mascota[8]}}
-{{mascota[9]}}
-{{mascota[10]}}
-{{mascota[11]}}
-{{mascota[12]}}
-{{mascota[13]}}
-{{mascota[14]}}
-{{mascota[15]}}
+<form method="POST" action="/connect" enctype="multipart/form-data">
+    Nombre:
+            <input type="text" value="{{mascota[0]}}" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
+    Id de paciente:
+        <input type="number" value="{{mascota[1]}}" name="idForm" id="idForm" placeholder="101" required>
+            <br>
+    Especie:
+        <input type="text" value="{{mascota[2]}}" name="especie" id="especie" placeholder="perro" required>
+    Raza:
+        <input type="text" value="{{mascota[3]}}" name="raza" id="raza" placeholder="Dalmata">
+            <br>
+    Tamaño:
+        <select name="tamaño" value="{{mascota[4]}}" id="tamaño">
+            <option value="grande">Grande</option>
+            <option value="mediano">Mediano</option>
+            <option value="pequeño">Pequeño</option>
+        </select>
+    Género:
+        <select name="genero" value="{{mascota[5]}}" id="genero">
+            <option value="hembra">Hembra</option>
+            <option value="macho">Macho</option>
+        </select>
+        <br>
+    Peso:
+        <input type="text" value="{{mascota[6]}}" name="peso" id="peso" placeholder="40"> kg.
+        <br>
+    Color:
+        <input type="text" value="{{mascota[7]}}" name="colorForm" id="colorForm" placeholder="Blanco con manchas negras">
+        <br>
+    Fecha de nacimiento:
+        <input type="date" value="{{mascota[8]}}" name="fechaNac" id="fechaNac">
+        <br>
+    Nombre y apellido del dueño:
+        <input type="text" value="{{mascota[9]}}" name="nombreDueño" id="nombreDueño" placeholder="Juan" required>
+        <input type="text" value="{{mascota[10]}}" name="apellidoDueño" id="apellidoDueño" placeholder="Doe" required>
+        <br>
+    Dirección:
+        <input type="text" value="{{mascota[11]}}" name="direccion" id="direccion" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
+        <br>
+    Teléfono:
+        <input type="tel" value="{{mascota[12]}}" name="tel" id="tel" placeholder="1122223333">
+        <br>
+    Estado:
+    <select name="estado" value="{{mascota[13]}}" id="estado">
+        <option value="health">Sano</option>
+        <option value="sick">Enfermo</option>
+        <option value="death">Fallecido</option>
+    </select>
+        <br>
+    Foto:
+        <input type="foto" value="{{mascota[14]}}" src="" alt="">
+        <br>
+    Fecha de defunción:
+        <input type="date" value="{{mascota[15]}}" name="fechaFin" id="fechaFin">
+    <br><p> </p>
+    <button type="submit" class="submitForm">Continuar</button>
+</form>
+{% endfor %}
