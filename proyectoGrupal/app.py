@@ -65,8 +65,7 @@ def update():
     datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,_foto.filename,_fechaFin)
     conn= mysql.connect()
     cursor= conn.cursor()
-    cursor.execute(sql)
-    
+    cursor.execute(sql,datos)
     conn.commit()
 
     return redirect('/')
