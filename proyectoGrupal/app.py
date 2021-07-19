@@ -40,6 +40,37 @@ def edit():
     print(mascotitas)
     return render_template('templates/edit.html',mascotitas=mascotitas)
 
+@app.route('/update', methods=['POST'])
+def update():
+    _nombre=request.form['nombreForm']
+    _id=request.form['idForm']
+    _especie=request.form['especie']
+    _raza=request.form['raza']
+    _tamaño=request.form['tamaño']
+    _genero=request.form['genero']
+    _peso=request.form['peso']
+    _color=request.form['colorForm']
+    _fechaNac=request.form['fechaNac']
+    _nombreDueño=request.form['nombreDueño']
+    _apellidoDueño=request.form['apellidoDueño']
+    _direccion=request.form['direccion']
+    _tel=request.form['tel']
+    _estado=request.form['estado']
+    _foto=request.flies['foto']
+    _fechaFin=request.form['fechaFin']
+    id=request.form['idForm']
+
+    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`, `fecha_defuncion`) VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+    
+    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,_foto.filename,_fechaFin)
+    conn= mysql.connect()
+    cursor= conn.cursor()
+    cursor.execute(sql)
+    
+    conn.commit()
+
+    return redirect('/')
+
 @app.route("/create")
 def create(id):
     return render_template('templates/create.html')

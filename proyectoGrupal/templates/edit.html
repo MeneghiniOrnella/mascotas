@@ -1,6 +1,6 @@
 Formulario para Editar
 {% for mascota in pacientes_mascotas %}
-<form method="POST" action="/connect" enctype="multipart/form-data">
+<form method="POST" action="/update" enctype="multipart/form-data">
     Nombre:
             <input type="text" value="{{mascota[0]}}" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
     Id de paciente:
@@ -50,7 +50,8 @@ Formulario para Editar
     </select>
         <br>
     Foto:
-        <input type="foto" value="{{mascota[14]}}" src="" alt="">
+    {{mascota[14]}}
+        <input type="foto" name="foto" id="foto">
         <br>
     Fecha de defunción:
         <input type="date" value="{{mascota[15]}}" name="fechaFin" id="fechaFin">
