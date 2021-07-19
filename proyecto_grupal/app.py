@@ -23,7 +23,6 @@ def index():
     conn.commit()
     return render_template('templates/index.html')
 
-
 @app.route("/connect, methods=['POST']")
 def storage():
     _nombre=request.form['nombreForm']
@@ -43,11 +42,12 @@ def storage():
     _foto=request.flies['foto']
     now=datetime.now()
     tiempo=now.strftime("%Y%H%M%S")
+    '''
     if _foto.filename='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
     _fechaFin=request.form['fechaFin']
-    
+    '''
     sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`, `fecha_defuncion`) VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
     
     datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,_foto.filename,_fechaFin)
@@ -58,7 +58,6 @@ def storage():
     print(mascotas)
     conn.commit()
     return render_template('templates/index.html')
-
 
 if __name__== '__main__':
     app.run(debug=True)
