@@ -6,7 +6,7 @@
                 Ingresar datos del paciente
             </div>
             <div class="card-body">
-                <h5 class="card-title">Datos del empleado</h5>
+                <h5 class="card-title">Datos del paciente</h5>
                 <p class="card-text">
 
                     <div class="form-group">
@@ -91,6 +91,19 @@
                         <input id="fechaFin" class="form-control" type="text" name="fechaFin">
                     </div>
 
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Agregar">
+                        <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                    </div>
+                    
+                    
+                </p>
+            </div>
+        </div>
+       
+    </form>
+{% include 'footer.html' %}
+
                     <!-- Nombre:
                     <input type="text" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
             Id de paciente:
@@ -145,14 +158,7 @@
             Fecha de defunción:
                 <input type="date" name="fechaFin" id="fechaFin">
             <br><p> </p> -->
-            <button type="submit" class="submitForm">Continuar</button>
-                    
-                </p>
-            </div>
-        </div>
-       
-    </form>
-{% include 'footer.html' %}
+            
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>

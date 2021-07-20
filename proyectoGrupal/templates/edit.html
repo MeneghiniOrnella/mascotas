@@ -1,10 +1,105 @@
 {% include 'header.html' %}
     {% for mascota in pacientes_mascotas %}
     <form method="POST" action="/update" enctype="multipart/form-data">
-        Nombre:
-                <input type="text" value="{{mascota[0]}}" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
+
+        <div class="card">
+            <div class="card-header">
+                Editar datos del paciente
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datos del paciente</h5>
+                <p class="card-text">
+
+                    <div class="form-group">
+                        <label for="nombreForm">Nombre</label>
+                        <input id="nombreForm" value="{{mascota[0]}}" class="form-control" type="text" name="nombreForm">
+                    </div>
+
+                    <input type="hidden" value="{{mascota[1]}}" name="idForm" id="idForm" placeholder="101" required>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="especie">Especie</label>
+                        <input id="especie" value="{{mascota[2]}}" class="form-control" type="text" name="especie">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="raza">Raza</label>
+                        <input id="raza" value="{{mascota[3]}}" class="form-control" type="text" name="raza">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tamaño">Tamaño</label>
+                        <input id="tamaño" value="{{mascota[4]}}" class="form-control" type="text" name="tamaño">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Genero</label>
+                        <input id="genero" value="{{mascota[5]}}" class="form-control" type="text" name="genero">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peso">Peso</label>
+                        <input id="peso" value="{{mascota[6]}}" class="form-control" type="text" name="peso">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colorForm">Color</label>
+                        <input id="colorForm" value="{{mascota[7]}}" class="form-control" type="text" name="colorForm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaNac">Fecha de nacimiento</label>
+                        <input id="fechaNac" value="{{mascota[8]}}" class="form-control" type="text" name="fechaNac">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombreDueño">Nombre del dueño</label>
+                        <input id="nombreDueño" value="{{mascota[9]}}" class="form-control" type="text" name="nombreDueño">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellidoDueño">Apellido del dueño</label>
+                        <input id="apellidoDueño" value="{{mascota[10]}}" class="form-control" type="text" name="apellidoDueño">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input id="direccion" value="{{mascota[11]}}" class="form-control" type="text" name="direccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel">Teléfono</label>
+                        <input id="tel" value="{{mascota[12]}}" class="form-control" type="text" name="tel">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input id="estado" value="{{mascota[13]}}" class="form-control" type="text" name="estado">
+                    </div>
+
+                    Foto:
+                    <br>
+                    <img class="img-thumbnail" width="100" src="{{url_for('uploads',nombreFoto=mascota[14])}}" alt="">
+                    <br>
+                    <input type="foto" name="foto" id="foto">
+                        <br>
+
+                    <div class="form-group">
+                        <label for="nombreForm">Foto</label>
+                        <input id="nombreForm" value="{{mascota[14]}}" class="form-control" type="text" name="nombreForm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaFin">Fecha de defunción</label>
+                        <input id="fechaFin" value="{{mascota[15]}}" class="form-control" type="text" name="fechaFin">
+                    </div>
+
+         <!-- Nombre:
+            <input type="text" value="{{mascota[0]}}" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
         Id de paciente:
-            <input type="number" value="{{mascota[1]}}" name="idForm" id="idForm" placeholder="101" required>
+            <input type="hidden" value="{{mascota[1]}}" name="idForm" id="idForm" placeholder="101" required>
                 <br>
         Especie:
             <input type="text" value="{{mascota[2]}}" name="especie" id="especie" placeholder="perro" required>
@@ -57,8 +152,12 @@
             <br>
         Fecha de defunción:
             <input type="date" value="{{mascota[15]}}" name="fechaFin" id="fechaFin">
-        <br><p> </p>
+        <br><p> </p> -->
         <button type="submit" class="submitForm">Continuar</button>
+
+                </p>
+            </div>
+        </div>
     </form>
     {% endfor %}
 {% include 'footer.html' %}
