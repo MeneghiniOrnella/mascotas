@@ -1,61 +1,62 @@
-<form method="POST" action="/connect" enctype="multipart/form-data">
-    Nombre:
-            <input type="text" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
-    Id de paciente:
-        <input type="number" name="idForm" id="idForm" placeholder="101" required>
+{% include 'header.html' %}
+    <form method="POST" action="/connect" enctype="multipart/form-data">
+        Nombre:
+                <input type="text" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
+        Id de paciente:
+            <input type="number" name="idForm" id="idForm" placeholder="101" required>
+                <br>
+        Especie:
+            <input type="text" name="especie" id="especie" placeholder="perro" required>
+        Raza:
+            <input type="text" name="raza" id="raza" placeholder="Dalmata">
+                <br>
+        Tamaño:
+            <select name="tamaño" id="tamaño">
+                <option value="grande">Grande</option>
+                <option value="mediano">Mediano</option>
+                <option value="pequeño">Pequeño</option>
+            </select>
+        Género:
+            <select name="genero" id="genero">
+                <option value="hembra">Hembra</option>
+                <option value="macho">Macho</option>
+            </select>
             <br>
-    Especie:
-        <input type="text" name="especie" id="especie" placeholder="perro" required>
-    Raza:
-        <input type="text" name="raza" id="raza" placeholder="Dalmata">
+        Peso:
+            <input type="text" name="peso" id="peso" placeholder="40"> kg.
             <br>
-    Tamaño:
-        <select name="tamaño" id="tamaño">
-            <option value="grande">Grande</option>
-            <option value="mediano">Mediano</option>
-            <option value="pequeño">Pequeño</option>
+        Color:
+            <input type="text" name="colorForm" id="colorForm" placeholder="Blanco con manchas negras">
+            <br>
+        Fecha de nacimiento:
+            <input type="date" name="fechaNac" id="fechaNac">
+            <br>
+        Nombre y apellido del dueño:
+            <input type="text" name="nombreDueño" id="nombreDueño" placeholder="Juan" required>
+            <input type="text" name="apellidoDueño" id="apellidoDueño" placeholder="Doe" required>
+            <br>
+        Dirección:
+            <input type="text" name="direccion" id="direccion" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
+            <br>
+        Teléfono:
+            <input type="tel" name="tel" id="tel" placeholder="1122223333">
+            <br>
+        Estado:
+        <select name="estado" id="estado">
+            <option value="health">Sano</option>
+            <option value="sick">Enfermo</option>
+            <option value="death">Fallecido</option>
         </select>
-    Género:
-        <select name="genero" id="genero">
-            <option value="hembra">Hembra</option>
-            <option value="macho">Macho</option>
-        </select>
-        <br>
-    Peso:
-        <input type="text" name="peso" id="peso" placeholder="40"> kg.
-        <br>
-    Color:
-        <input type="text" name="colorForm" id="colorForm" placeholder="Blanco con manchas negras">
-        <br>
-    Fecha de nacimiento:
-        <input type="date" name="fechaNac" id="fechaNac">
-        <br>
-    Nombre y apellido del dueño:
-        <input type="text" name="nombreDueño" id="nombreDueño" placeholder="Juan" required>
-        <input type="text" name="apellidoDueño" id="apellidoDueño" placeholder="Doe" required>
-        <br>
-    Dirección:
-        <input type="text" name="direccion" id="direccion" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
-        <br>
-    Teléfono:
-        <input type="tel" name="tel" id="tel" placeholder="1122223333">
-        <br>
-    Estado:
-    <select name="estado" id="estado">
-        <option value="health">Sano</option>
-        <option value="sick">Enfermo</option>
-        <option value="death">Fallecido</option>
-    </select>
-        <br>
-    Foto:
-        <input type="foto" src="" alt="">
-        <br>
-    Fecha de defunción:
-        <input type="date" name="fechaFin" id="fechaFin">
-    <br><p> </p>
-    <button type="submit" class="submitForm">Continuar</button>
-</form>
-
+            <br>
+        Foto:
+            <input type="foto" src="" alt="">
+            <br>
+        Fecha de defunción:
+            <input type="date" name="fechaFin" id="fechaFin">
+        <br><p> </p>
+        <button type="submit" class="submitForm">Continuar</button>
+    </form>
+{% include 'footer.html' %}
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
