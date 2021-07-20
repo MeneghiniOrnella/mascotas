@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template,request,redirect
+from flask import render_template,request,redirect,url_for
 from flaskext.mysql import MySQL
 from flask import send_from_directory
 from datetime import datetime
@@ -19,7 +19,7 @@ app.config['CARPETA']=CARPETA
 
 @app.route("/uploads/<nombreFoto>")
 def uploads(nombreFoto):
-    
+    return send_from_directory(app.config['CARPETA'],nombreFoto)
 
 @app.route('/')
 def index():
