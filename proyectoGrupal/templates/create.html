@@ -1,60 +1,156 @@
 {% include 'header.html' %}
     <form method="POST" action="/connect" enctype="multipart/form-data">
-        Nombre:
-                <input type="text" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
-        Id de paciente:
-            <input type="number" name="idForm" id="idForm" placeholder="101" required>
+        
+        <div class="card">
+            <div class="card-header">
+                Ingresar datos del paciente
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datos del empleado</h5>
+                <p class="card-text">
+
+                    <div class="form-group">
+                        <label for="nombreForm">Text</label>
+                        <input id="nombreForm" class="form-control" type="text" name="nombreForm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idForm">Text</label>
+                        <input id="idForm" class="form-control" type="text" name="idForm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especie">Text</label>
+                        <input id="especie" class="form-control" type="text" name="especie">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="raza">Text</label>
+                        <input id="raza" class="form-control" type="text" name="raza">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tamaño">Text</label>
+                        <input id="tamaño" class="form-control" type="text" name="tamaño">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Text</label>
+                        <input id="genero" class="form-control" type="text" name="genero">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peso">Text</label>
+                        <input id="peso" class="form-control" type="text" name="peso">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colorForm">Text</label>
+                        <input id="colorForm" class="form-control" type="text" name="colorForm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaNac">Text</label>
+                        <input id="fechaNac" class="form-control" type="text" name="fechaNac">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="nombreDueño">Text</label>
+                        <input id="nombreDueño" class="form-control" type="text" name="nombreDueño">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellidoDueño">Text</label>
+                        <input id="apellidoDueño" class="form-control" type="text" name="apellidoDueño">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="direccion">Text</label>
+                        <input id="direccion" class="form-control" type="text" name="direccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel">Text</label>
+                        <input id="tel" class="form-control" type="text" name="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Text</label>
+                        <input id="estado" class="form-control" type="text" name="estado">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto">Text</label>
+                        <input id="foto" class="form-control" type="text" name="foto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaFin">Text</label>
+                        <input id="fechaFin" class="form-control" type="text" name="fechaFin">
+                    </div>
+
+                    <!-- Nombre:
+                    <input type="text" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
+            Id de paciente:
+                <input type="number" name="idForm" id="idForm" placeholder="101" required>
+                    <br>
+            Especie:
+                <input type="text" name="especie" id="especie" placeholder="perro" required>
+            Raza:
+                <input type="text" name="raza" id="raza" placeholder="Dalmata">
+                    <br>
+            Tamaño:
+                <select name="tamaño" id="tamaño">
+                    <option value="grande">Grande</option>
+                    <option value="mediano">Mediano</option>
+                    <option value="pequeño">Pequeño</option>
+                </select>
+            Género:
+                <select name="genero" id="genero">
+                    <option value="hembra">Hembra</option>
+                    <option value="macho">Macho</option>
+                </select>
                 <br>
-        Especie:
-            <input type="text" name="especie" id="especie" placeholder="perro" required>
-        Raza:
-            <input type="text" name="raza" id="raza" placeholder="Dalmata">
+            Peso:
+                <input type="text" name="peso" id="peso" placeholder="40"> kg.
                 <br>
-        Tamaño:
-            <select name="tamaño" id="tamaño">
-                <option value="grande">Grande</option>
-                <option value="mediano">Mediano</option>
-                <option value="pequeño">Pequeño</option>
+            Color:
+                <input type="text" name="colorForm" id="colorForm" placeholder="Blanco con manchas negras">
+                <br>
+            Fecha de nacimiento:
+                <input type="date" name="fechaNac" id="fechaNac">
+                <br>
+            Nombre y apellido del dueño:
+                <input type="text" name="nombreDueño" id="nombreDueño" placeholder="Juan" required>
+                <input type="text" name="apellidoDueño" id="apellidoDueño" placeholder="Doe" required>
+                <br>
+            Dirección:
+                <input type="text" name="direccion" id="direccion" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
+                <br>
+            Teléfono:
+                <input type="tel" name="tel" id="tel" placeholder="1122223333">
+                <br>
+            Estado:
+            <select name="estado" id="estado">
+                <option value="health">Sano</option>
+                <option value="sick">Enfermo</option>
+                <option value="death">Fallecido</option>
             </select>
-        Género:
-            <select name="genero" id="genero">
-                <option value="hembra">Hembra</option>
-                <option value="macho">Macho</option>
-            </select>
-            <br>
-        Peso:
-            <input type="text" name="peso" id="peso" placeholder="40"> kg.
-            <br>
-        Color:
-            <input type="text" name="colorForm" id="colorForm" placeholder="Blanco con manchas negras">
-            <br>
-        Fecha de nacimiento:
-            <input type="date" name="fechaNac" id="fechaNac">
-            <br>
-        Nombre y apellido del dueño:
-            <input type="text" name="nombreDueño" id="nombreDueño" placeholder="Juan" required>
-            <input type="text" name="apellidoDueño" id="apellidoDueño" placeholder="Doe" required>
-            <br>
-        Dirección:
-            <input type="text" name="direccion" id="direccion" placeholder="Av. Costanera Rafael Obligado s/n, C1425 CABA">
-            <br>
-        Teléfono:
-            <input type="tel" name="tel" id="tel" placeholder="1122223333">
-            <br>
-        Estado:
-        <select name="estado" id="estado">
-            <option value="health">Sano</option>
-            <option value="sick">Enfermo</option>
-            <option value="death">Fallecido</option>
-        </select>
-            <br>
-        Foto:
-            <input type="foto" src="" alt="">
-            <br>
-        Fecha de defunción:
-            <input type="date" name="fechaFin" id="fechaFin">
-        <br><p> </p>
-        <button type="submit" class="submitForm">Continuar</button>
+                <br>
+            Foto:
+                <input type="foto" src="" alt="">
+                <br>
+            Fecha de defunción:
+                <input type="date" name="fechaFin" id="fechaFin">
+            <br><p> </p> -->
+            <button type="submit" class="submitForm">Continuar</button>
+                    
+                </p>
+            </div>
+        </div>
+       
     </form>
 {% include 'footer.html' %}
 <!-- <!DOCTYPE html>

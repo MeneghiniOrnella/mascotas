@@ -53,8 +53,8 @@
                     </td>
                     <td>{{mascota[15]}}</td>
                     <td>
-                        <a class="btn btn-danger" href="/destroy/{{mascota[0]}}" text="Eliminar"><i class="fas fa-backspace"></i></a>  
-                        <a class="btn btn-warming" href="/edit/{{mascota[0]}}" text="Editar"><i class="fas fa-edit"></i></a>
+                        <a onclick="return confirm('Desea eliminar el paciente?')" class="btn btn-danger" href="/destroy/{{mascota[0]}}" text="Eliminar"><i class="fas fa-backspace"></i></a>  
+                        <a onclick="return confirm('Desea modificar el paciente?')" class="btn btn-warming" href="/edit/{{mascota[0]}}" text="Editar"><i class="fas fa-edit"></i></a>
                     </td>
             </tr>
             {% endfor %}
