@@ -127,7 +127,7 @@ def storage():
     mascotas=cursor.fetchall()
     print(mascotas)
     conn.commit()
-    return render_template('templates/index.html')
+    return redirect('/')
 
 '''from flask import Flask
 from flask import render_template
