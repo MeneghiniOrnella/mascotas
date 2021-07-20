@@ -17,6 +17,10 @@ mysql.init_app(app)
 CARPETA= os.path.join('uploads')
 app.config['CARPETA']=CARPETA
 
+@app.route("/uploads/<nombreFoto>")
+def uploads(nombreFoto):
+    
+
 @app.route('/')
 def index():
     sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`, `fecha_defuncion`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855', '.');"
