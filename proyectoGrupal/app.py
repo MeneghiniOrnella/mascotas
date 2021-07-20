@@ -72,6 +72,18 @@ def update():
     cursor.execute(sql,datos)
     conn.commit()
 
+    now=datetime.now()
+    tiempo=now.strftime("%Y%H%M%S")
+    if _foto.filename='':
+        nuevoNombreFoto=tiempo+_foto.filename
+        _foto.save("uploads/"+nuevoNombreFoto)
+        cursor.execute("SELECT foto FROM pacientes_mascotas WHERE id=%s", id)
+        fila= cursor.fetchall()
+
+        os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
+        cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
+        conn.commit()
+
     return redirect('/')
 
 @app.route("/create")
@@ -96,7 +108,7 @@ def storage():
     _estado=request.form['estado']
     _foto=request.flies['foto']
     now=datetime.now()
-    tiempo=now.strftime("YHMS")
+    tiempo=now.strftime("%Y%H%M%S")
     if _foto.filename='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
