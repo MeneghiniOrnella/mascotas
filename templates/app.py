@@ -8,11 +8,11 @@ import os
 app = Flask(__name__)
 app.secret_key="codoacodo21"
 
-mysql=MySQL()
+mysql= MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
 app.config['MYSQL_DATABASE_PASSWORD']=''
-app.config['MYSQL_DATABASE_DB']='pacientesvet'
+app.config['MYSQL_DATABASE_DB']='sistema'
 mysql.init_app(app)
 
 CARPETA= os.path.join('uploads')
@@ -29,10 +29,7 @@ def index():
     cursor= conn.cursor()
     cursor.execute(sql)
     conn.commit()
-    return render_template('pacientes/index.html')
-
-if __name__=='__main__':
-    app.run(dubug=True)
+    return render_template('templates/index.html')
 
 @app.route('/destroy/<int:id>')
 def destroy(id):
@@ -142,7 +139,6 @@ def storage():
     print(mascotas)
     conn.commit()
     return redirect('/')
-
 
 '''from flask import Flask
 from flask import render_template
