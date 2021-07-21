@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.secret_key="codoacodo21"
+#app.secret_key="codoacodo21"
 
 mysql= MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
@@ -20,19 +20,19 @@ app.config['CARPETA']=CARPETA
 
 @app.route('/')
 def index():
-    sql="SELECT * FROM `pacientesvet`.`pacientes`;"
-    '''sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855');"'''
+    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
+    #sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855');"
     conn=mysql.connect()
     cursor=conn.cursor()
     cursor.execute(sql)
     pacientes=cursor.fetchall() 
     print (pacientes)
     conn.commit()
-    return render_template('empleados/index.html',pacientes=pacientes)
+    return render_template('pacientes/index.html',pacientes=pacientes)
 
-@app.route("/create")
+'''@app.route("/create")
 def create():
-        return render_template('pacientes/create.html')
+    return render_template('pacientes/create.html')
 
 @app.route("/store, methods=['POST']")
 def storage():
@@ -133,7 +133,7 @@ def update():
         cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
         conn.commit()
 
-    return redirect('/')
+    return redirect('/')'''
 
 if __name__=='__main__':
     app.run(debug=True)
