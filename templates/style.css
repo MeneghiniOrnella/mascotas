@@ -1,22 +1,7 @@
 body{
     margin: 1rem 2rem 1rem 2rem;
     text-decoration: none;
-    background-color: rgb(240, 240, 202);
+    background-color: rgb(180, 223, 187);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
-}
-input{
-    background-color: whitesmoke;
-    padding: 0.3rem 3rem;
-    margin: 0.4%;   
-}
-button{
-    background-color: rgb(224, 224, 224);
-    font-stretch: expanded;
-    font-size: 14px;
-    color: #3f7950;
-    border-radius: 0.4em;
-    padding: 0.5rem 10rem;
-    font-size: 1.2rem;
-    justify-content: center;
 }
