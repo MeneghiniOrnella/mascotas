@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2021 a las 17:25:44
+-- Tiempo de generación: 21-07-2021 a las 19:45:24
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pacientesvet` (
-  `nombre_mascota` varchar(45) NOT NULL,
-  `id_mascota` int(45) NOT NULL,
+  `nombreMascota` varchar(45) NOT NULL,
+  `idMascota` int(45) NOT NULL,
   `especie` varchar(45) NOT NULL,
   `raza` varchar(45) NOT NULL,
-  `tamaño` varchar(45) NOT NULL,
-  `peso_actual` int(45) NOT NULL,
+  `tamano` varchar(45) NOT NULL,
+  `peso` int(45) NOT NULL,
   `color` varchar(45) NOT NULL,
   `genero` varchar(45) NOT NULL,
-  `fecha_nac` date NOT NULL,
+  `fechaNac` date NOT NULL,
   `estado` varchar(45) NOT NULL,
-  `nombre_dueño` varchar(45) NOT NULL,
-  `apellido_dueño` varchar(45) NOT NULL,
+  `nombreDueno` varchar(45) NOT NULL,
+  `apellidoDueno` varchar(45) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `telefono` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -48,7 +48,7 @@ CREATE TABLE `pacientesvet` (
 -- Volcado de datos para la tabla `pacientesvet`
 --
 
-INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES
+INSERT INTO `pacientesvet` (`nombreMascota`, `idMascota`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `fechaNac`, `estado`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`) VALUES
 ('Luna', 1, 'perro', '', 'grande', 29, 'dorado', 'hembra', '2018-02-14', 'sano', 'adriana', 'adriluna', 'Luna 1200, CABA', 1122558855);
 
 --
@@ -59,7 +59,7 @@ INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `
 -- Indices de la tabla `pacientesvet`
 --
 ALTER TABLE `pacientesvet`
-  ADD PRIMARY KEY (`id_mascota`);
+  ADD PRIMARY KEY (`idMascota`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -69,7 +69,7 @@ ALTER TABLE `pacientesvet`
 -- AUTO_INCREMENT de la tabla `pacientesvet`
 --
 ALTER TABLE `pacientesvet`
-  MODIFY `id_mascota` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idMascota` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
