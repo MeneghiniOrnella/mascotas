@@ -70,7 +70,7 @@
 
                     <div class="form-group">
                         <label for="tel">Teléfono</label>
-                        <input id="tel" value="{{mascota[12]}}" class="form-control" type="text" name="tel">
+                        <input id="tel" value="{{mascota[12]}}" class="form-control" type="tel" name="tel">
                     </div>
 
 
@@ -79,15 +79,9 @@
                         <input id="estado" value="{{mascota[13]}}" class="form-control" type="text" name="estado">
                     </div>
 
-                    Foto:
-                    <br>
-                    <img class="img-thumbnail" width="100" src="{{url_for('uploads',nombreFoto=mascota[14])}}" alt="">
-                    <br>
-                    <input type="foto" name="foto" id="foto">
-                        <br>
-
                     <div class="form-group">
                         <label for="nombreForm">Foto</label>
+                        <img class="img-thumbnail" width="100" src="{{url_for('uploads',nombreFoto=mascota[14])}}" alt="">
                         <input id="nombreForm" value="{{mascota[14]}}" class="form-control" type="text" name="nombreForm">
                     </div>
 
@@ -96,6 +90,20 @@
                         <input id="fechaFin" value="{{mascota[15]}}" class="form-control" type="text" name="fechaFin">
                     </div>
 
+                    <div class="form-group">
+                        <label for="fechaFin">Fecha de defunción</label>
+                        <input id="fechaFin" value="{{mascota[15]}}" class="form-control" type="text" name="fechaFin">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Modificar">
+                        <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+{% endfor %}
+{% include 'footer.html' %}
          <!-- Nombre:
             <input type="text" value="{{mascota[0]}}" name="nombreForm" id="nombreForm" placeholder="Papuchi" required>
         Id de paciente:
@@ -153,11 +161,3 @@
         Fecha de defunción:
             <input type="date" value="{{mascota[15]}}" name="fechaFin" id="fechaFin">
         <br><p> </p> -->
-        <button type="submit" class="submitForm">Continuar</button>
-
-                </p>
-            </div>
-        </div>
-    </form>
-    {% endfor %}
-{% include 'footer.html' %}
