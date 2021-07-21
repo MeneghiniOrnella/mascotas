@@ -36,11 +36,11 @@ def destroy(id):
     conn= mysql.connect()
     cursor= conn.cursor()
     
-    cursor.execute("SELECT foto FROM pacientes_mascotas WHERE id=%s", id)
+    cursor.execute("SELECT foto FROM pacientesvet WHERE id=%s", id)
     fila=cursor.fetchall()
     os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
     
-    cursor.execute("DELETE FROM pacientes_mascotas WHERE id=%s", (id))
+    cursor.execute("DELETE FROM pacientesvet WHERE id=%s", (id))
     conn.commit()
     return redirect('/')
 
@@ -48,7 +48,7 @@ def destroy(id):
 def edit():
     conn= mysql.connect()
     cursor= conn.cursor()
-    cursor.execute("SELECT FROM pacientes_mascotas WHERE id=%s", (id))
+    cursor.execute("SELECT FROM pacientesvwet WHERE id=%s", (id))
     mascotitas=cursor.fetchall()
     conn.commit()
     print(mascotitas)
