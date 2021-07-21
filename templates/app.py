@@ -24,7 +24,7 @@ def uploads(nombreFoto):
 
 @app.route('/')
 def index():
-    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`, `fecha_defuncion`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855', '.');"
+    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855');"
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql)
@@ -71,12 +71,11 @@ def update():
     _tel=request.form['tel']
     _estado=request.form['estado']
     _foto=request.flies['foto']
-    _fechaFin=request.form['fechaFin']
     id=request.form['idForm']
 
-    sql ="UPDATE `pacientesvet`SET `nombre_mascota`=%s, `id_mascota`=%s, `especie`=%s, `raza`=%s, `tamaño`=%s, `peso_actual`=%s, `color`=%s, `genero`=%s, `fecha_nac`=%s, `estado`=%s, `vacunas_dadas`=%s, `nombre_dueño`=%s, `apellido_dueño`=%s, `direccion`=%s, `telefono`=%s,WHERE `fecha_defuncion`=%s;"
+    sql ="UPDATE `pacientesvet`SET `nombre_mascota`=%s, `id_mascota`=%s, `especie`=%s, `raza`=%s, `tamaño`=%s, `peso_actual`=%s, `color`=%s, `genero`=%s, `fecha_nac`=%s, `estado`=%s, `vacunas_dadas`=%s, `nombre_dueño`=%s, `apellido_dueño`=%s, `direccion`=%s,WHERE `telefono`=%s;"
     
-    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,id,_fechaFin)
+    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,id)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)
@@ -127,11 +126,10 @@ def storage():
     if _foto.filename='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
-    _fechaFin=request.form['fechaFin']
     
-    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`, `fecha_defuncion`) VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
     
-    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,_foto.filename,_fechaFin)
+    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,_foto.filename)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql)
@@ -139,17 +137,4 @@ def storage():
     print(mascotas)
     conn.commit()
     return redirect('/')
-
-'''from flask import Flask
-from flask import render_template
-
-app=Flask(__name__)
-
-@app.route('/')
-
-def index():
-    return render_template('templates/index.html')
-
-if __name__== '__main__':
-    app.run(debug=True)'''
 
