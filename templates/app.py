@@ -83,7 +83,7 @@ def update():
 
     now=datetime.now()
     tiempo=now.strftime("%Y%H%M%S")
-    if _foto.filename='':
+    if _foto.filename=='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
         cursor.execute("SELECT foto FROM pacientes_mascotas WHERE id=%s", id)
@@ -119,15 +119,15 @@ def storage():
     # now=datetime.now()
     # tiempo=now.strftime("%Y%H%M%S")
 
-    if _nombre='' or _especie='':
+    '''if _nombre='' or _especie='':
         flash('Recuerda llenar estos campos')
-        return redirect(url_for('create'))
+        return redirect(url_for('create'))'''
 
     '''if _foto.filename='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)'''
     
-    sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamano`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`) VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    sql="INSERT INTO `pacientesvet` (`nombreMascota`, `idMascota`, `especie`, `raza`, `tamano`, `peso_actual`, `color`, `genero`, `fechaNac`, `estado`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`) VALUES (%s,NULL,%s,%s,%s, %s, %s, %s,%s,%s,%s,%s,%s,%s)"
     
     datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename)
     conn= mysql.connect()
@@ -136,7 +136,7 @@ def storage():
     mascotas=cursor.fetchall()
     print(mascotas)
     conn.commit()
-    return redirect('/')
+    return render_template('')
 
 if __name__=='__main__':
     app.run(debug=True)
