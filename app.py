@@ -71,14 +71,16 @@ def storage():
     tiempo=now.strftime("%Y%H%M%S")
     if _foto.filename=='':
         nuevoNombreFoto=tiempo+_foto.filename
-        _foto.save("uploads/"+nuevoNombreFoto)    
-    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`, `id`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `fechaNac`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`,`estado`,`foto`) VALUES (%s,null,%s,%s,%s, %s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    datos=(_nombre,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename)
+        _foto.save("uploads/"+nuevoNombreFoto)
+    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,) VALUES (%s,%s,%s,%s,%s)"
+    datos=(_nombre,_especie,_raza,_tamano,_peso)    
+    """ sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`, `id`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`,`estado`,`foto`) VALUES (%s,null,%s,%s,%s,%d,%s,%s,%s,%s,%s,%s,%d,%s,%s)"
+    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename) """
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)
     conn.commit()
-    return render_template('pacientes/index.html')
+    return redirect ('/')
 
 @app.route('/uploads/<nombreFoto>')
 def uploads(nombreFoto):
