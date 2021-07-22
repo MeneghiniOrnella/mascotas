@@ -7,102 +7,102 @@
     <title>PacientesVet</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% for mascota in pacientes_mascotas %}
-    <form method="POST" action="/update" enctype="multipart/form-data">
+    {% for m in mascotitas %}
+        <form method="POST" action="/update" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-header">
+                    Editar datos del paciente
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Datos del paciente</h5>
+                    <p class="card-text">
 
-        <div class="card">
-            <div class="card-header">
-                Editar datos del paciente
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Datos del paciente</h5>
-                <p class="card-text">
+                        <div class="form-group">
+                            <label for="nombreForm">Nombre</label>
+                            <input id="nombreForm" value="{{ m[0] }}" class="form-control" type="text" name="nombreForm">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="nombreForm">Nombre</label>
-                        <input id="nombreForm" value="{{mascota[0]}}" class="form-control" type="text" name="nombreForm">
-                    </div>
+                        <input type="hidden" value="{{ m[1] }}" name="idForm" id="idForm" placeholder="101" required>
+                        <br>
 
-                    <input type="hidden" value="{{mascota[1]}}" name="idForm" id="idForm" placeholder="101" required>
-                    <br>
+                        <div class="form-group">
+                            <label for="especie">Especie</label>
+                            <input id="especie" value="{{ m[2] }}" class="form-control" type="text" name="especie">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="especie">Especie</label>
-                        <input id="especie" value="{{mascota[2]}}" class="form-control" type="text" name="especie">
-                    </div>
+                        <div class="form-group">
+                            <label for="raza">Raza</label>
+                            <input id="raza" value="{{ m[3] }}" class="form-control" type="text" name="raza">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="raza">Raza</label>
-                        <input id="raza" value="{{mascota[3]}}" class="form-control" type="text" name="raza">
-                    </div>
+                        <div class="form-group">
+                            <label for="tamano">Tamaño</label>
+                            <input id="tamano" value="{{m[4]}}" class="form-control" type="text" name="tamano">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="tamano">Tamaño</label>
-                        <input id="tamano" value="{{mascota[4]}}" class="form-control" type="text" name="tamano">
-                    </div>
+                        <div class="form-group">
+                            <label for="genero">Genero</label>
+                            <input id="genero" value="{{m[5]}}" class="form-control" type="text" name="genero">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="genero">Genero</label>
-                        <input id="genero" value="{{mascota[5]}}" class="form-control" type="text" name="genero">
-                    </div>
+                        <div class="form-group">
+                            <label for="peso">Peso</label>
+                            <input id="peso" value="{{m[6]}}" class="form-control" type="text" name="peso">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="peso">Peso</label>
-                        <input id="peso" value="{{mascota[6]}}" class="form-control" type="text" name="peso">
-                    </div>
+                        <div class="form-group">
+                            <label for="colorForm">Color</label>
+                            <input id="colorForm" value="{{m[7]}}" class="form-control" type="text" name="colorForm">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="colorForm">Color</label>
-                        <input id="colorForm" value="{{mascota[7]}}" class="form-control" type="text" name="colorForm">
-                    </div>
+                        <div class="form-group">
+                            <label for="fechaNac">Fecha de nacimiento</label>
+                            <input id="fechaNac" value="{{m[8]}}" class="form-control" type="text" name="fechaNac">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="fechaNac">Fecha de nacimiento</label>
-                        <input id="fechaNac" value="{{mascota[8]}}" class="form-control" type="text" name="fechaNac">
-                    </div>
+                        <div class="form-group">
+                            <label for="nombreDueno">Nombre del dueño</label>
+                            <input id="nombreDueno" value="{{m[9]}}" class="form-control" type="text" name="nombreDueno">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="nombreDueno">Nombre del dueño</label>
-                        <input id="nombreDueno" value="{{mascota[9]}}" class="form-control" type="text" name="nombreDueno">
-                    </div>
+                        <div class="form-group">
+                            <label for="apellidoDueno">Apellido del dueño</label>
+                            <input id="apellidoDueno" value="{{m[10]}}" class="form-control" type="text" name="apellidoDueno">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="apellidoDueno">Apellido del dueño</label>
-                        <input id="apellidoDueno" value="{{mascota[10]}}" class="form-control" type="text" name="apellidoDueno">
-                    </div>
+                        <div class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input id="direccion" value="{{m[11]}}" class="form-control" type="text" name="direccion">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="direccion">Dirección</label>
-                        <input id="direccion" value="{{mascota[11]}}" class="form-control" type="text" name="direccion">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telFrom">Teléfono</label>
-                        <input id="telForm" value="{{mascota[12]}}" class="form-control" type="tel" name="telForm">
-                    </div>
+                        <div class="form-group">
+                            <label for="telFrom">Teléfono</label>
+                            <input id="telForm" value="{{m[12]}}" class="form-control" type="tel" name="telForm">
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <input id="estado" value="{{mascota[13]}}" class="form-control" type="text" name="estado">
-                    </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input id="estado" value="{{m[13]}}" class="form-control" type="text" name="estado">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="nombreForm">Foto</label>
-                        <img class="img-thumbnail" width="100" src="{{url_for('uploads',nombreFoto=mascota[14])}}" alt="">
-                        <input id="nombreForm" value="{{mascota[14]}}" class="form-control" type="text" name="nombreForm">
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-success" value="Modificar">
-                        <a href="{{url_for('index.html')}}" class="btn btn-primary"><i class="fas fa-chevron-left"></i>Regresar</a>
+                        <div class="form-group">
+                            <label for="nombreForm">Foto</label>
+                            <img class="img-thumbnail" width="100" src="" alt="">
+                            <input id="nombreForm" value="{{m[14]}}" class="form-control" type="text" name="nombreForm">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Modificar">
+                            <a href="" class="btn btn-primary"><i class="fas fa-chevron-left"></i>Regresar</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </form>
+    {% endfor %}
 </body>
-{% endfor %}
 </html>

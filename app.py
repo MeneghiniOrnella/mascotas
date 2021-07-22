@@ -21,19 +21,29 @@ app.config['CARPETA']=CARPETA
 @app.route('/')
 def index():
     sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
-    #sql ="INSERT INTO `pacientesvet` (`nombre_mascota`, `id_mascota`, `especie`, `raza`, `tamaño`, `peso_actual`, `color`, `genero`, `fecha_nac`, `estado`, `vacunas_dadas`, `nombre_dueño`, `apellido_dueño`, `direccion`, `telefono`) VALUES ('Luna', '1', 'perro', '.', 'grande', '29', 'dorado', 'hembra', '2018-02-14', 'sano', '15', 'adriana', 'adriluna', 'Luna 1200, CABA', '1122558855');"
     conn=mysql.connect()
     cursor=conn.cursor()
     cursor.execute(sql)
-    pacientes=cursor.fetchall() 
-    print (pacientes)
-    conn.commit()
-    return render_template('pacientes/index.html',pacientes=pacientes)
+    mascotitas=cursor.fetchall() 
+    print (mascotitas)
+    #conn.commit()
+    return render_template('pacientes/index.html',mascotitas=mascotitas)
 
-'''@app.route("/create")
+@app.route('/edit', methods=["GET"])
+def edit():
+    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
+    conn=mysql.connect()
+    cursor=conn.cursor()
+    cursor.execute(sql)
+    mascotitas=cursor.fetchall()
+    print(mascotitas)
+    return render_template('pacientes/edit.html',mascotitas=mascotitas)
+
+@app.route("/create")
 def create():
     return render_template('pacientes/create.html')
 
+'''
 @app.route("/store, methods=['POST']")
 def storage():
     _nombre=request.form['nombreForm']
@@ -84,15 +94,7 @@ def destroy(id):
     conn.commit()
     return redirect('/')
 
-@app.route('/edit/<int:id>')
-def edit():
-    conn= mysql.connect()
-    cursor= conn.cursor()
-    cursor.execute("SELECT FROM pacientesvwet WHERE id=%s", (id))
-    mascotitas=cursor.fetchall()
-    conn.commit()
-    print(mascotitas)
-    return render_template('templates/edit.html',mascotitas=mascotitas)
+
 
 @app.route('/update', methods=['POST'])
 def update():
