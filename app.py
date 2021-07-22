@@ -72,8 +72,8 @@ def storage():
     if _foto.filename=='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
-    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,) VALUES (%s,%s,%s,%s,%s)"
-    datos=(_nombre,_especie,_raza,_tamano,_peso)    
+    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`) VALUES (%s,null,%s,%s,%s,%d,%s,%s)"
+    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero)    
     """ sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`, `id`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`,`estado`,`foto`) VALUES (%s,null,%s,%s,%s,%d,%s,%s,%s,%s,%s,%s,%d,%s,%s)"
     datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename) """
     conn= mysql.connect()
