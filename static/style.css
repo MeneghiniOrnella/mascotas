@@ -1,8 +1,7 @@
 body{
     margin: 1rem 2rem 1rem 2rem;
     text-decoration: none;
-    background: rgb(108, 170, 84);
-    background: radial-gradient(circle, rgb(147, 185, 132) 36%, rgba(41,144,83,1) 100%); 
+    background: rgb(217, 233, 172);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
 }

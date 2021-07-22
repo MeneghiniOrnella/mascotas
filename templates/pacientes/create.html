@@ -49,18 +49,26 @@
                         <input id="raza" class="form-control" type="text" name="raza">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         <label for="tamano">Tamaño</label>
-                        <input id="tamano" class="form-control" type="text" name="tamano">
+                        <select id="tamano" class="form-control" name="tamano">
+                          <option>Pequeño</option>
+                          <option>Mediano</option>
+                          <option>Grande</option>
+                          <option>Extra grande</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="genero">Sexo</label>
+                        <select id="genero" class="form-control" name="genero">
+                          <option>Hembra</option>
+                          <option>Macho</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="genero">Genero</label>
-                        <input id="genero" class="form-control" type="text" name="genero">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="peso">Peso</label>
+                        <label for="peso">Peso en Kg.</label>
                         <input id="peso" class="form-control" type="text" name="peso">
                     </div>
 
@@ -73,7 +81,6 @@
                         <label for="fechaNac">Fecha de nacimiento</label>
                         <input id="fechaNac" class="form-control" type="text" name="fechaNac">
                     </div>
-
 
                     <div class="form-group">
                         <label for="nombreDueno">Nombre del dueño</label>
@@ -95,15 +102,20 @@
                         <input id="telForm" class="form-control" type="text" name="telForm">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <input id="estado" class="form-control" type="text" name="estado">
+                        <select id="estado" class="form-control" name="estado">
+                          <option>Sano</option>
+                          <option>Enfermo</option>
+                          <option>Fallecido</option>
+                        </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="foto">Text</label>
-                        <input id="foto" class="form-control" type="text" name="foto">
+                    <div class="custom-file">
+                        <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto">
+                        <label class="custom-file-label" for="customFileLang">Elegir foto</label>
                     </div>
+                    <p> </p>
 
                     <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Agregar">

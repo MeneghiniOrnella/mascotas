@@ -50,7 +50,7 @@ def edit():
 @app.route("/create")
 def create():
     return render_template('pacientes/create.html')
-'''
+
 @app.route("/store, methods=['POST']")
 def storage():
     _nombre=request.form['nombreForm']
@@ -84,10 +84,10 @@ def storage():
     conn.commit()
     return render_template('pacientes/index.html')
 
-@app.route('uploads/<nombreFoto>')
-def uploads(nombreFoto):
-    return send_from_directory(app.config['CARPETA'],nombreFoto)
-'''
+'''@app.route('uploads/<nombreFoto>')
+def uploads(photoName):
+    return send_from_directory(app.config['CARPETA'],photoName)'''
+
 @app.route('/update', methods=['POST'])
 def update():
     _nombre=request.form['nombreForm']
@@ -117,7 +117,7 @@ def update():
     if _foto.filename=='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
-        cursor.execute("SELECT foto FROM pacientes_mascotas WHERE id=%s", id)
+        cursor.execute("SELECT foto FROM pacientesvet WHERE id=%s", id)
         fila= cursor.fetchall()
         os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
         cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
