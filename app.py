@@ -26,7 +26,7 @@ def index():
     cursor.execute(sql)
     mascotitas=cursor.fetchall() 
     print (mascotitas)
-    #conn.commit()
+    conn.commit()
     return render_template('pacientes/index.html',mascotitas=mascotitas)
 
 @app.route('/edit', methods=["GET"])
@@ -42,7 +42,6 @@ def edit():
 @app.route("/create")
 def create():
     return render_template('pacientes/create.html')
-
 '''
 @app.route("/store, methods=['POST']")
 def storage():
@@ -80,8 +79,8 @@ def storage():
 @app.route('uploads/<nombreFoto>')
 def uploads(nombreFoto):
     return send_from_directory(app.config['CARPETA'],nombreFoto)
-
-@app.route('destroy/<int:id>')
+'''
+'''@app.route('destroy/<int:id>')
 def destroy(id):
     conn= mysql.connect()
     cursor= conn.cursor()
@@ -92,9 +91,7 @@ def destroy(id):
     
     cursor.execute("DELETE FROM pacientesvet WHERE id=%s", (id))
     conn.commit()
-    return redirect('/')
-
-
+    return redirect('/')'''
 
 @app.route('/update', methods=['POST'])
 def update():
@@ -115,7 +112,7 @@ def update():
     _foto=request.flies['foto']
     id=request.form['idForm']
 
-    sql ="UPDATE `pacientesvet`SET `nombre_mascota`=%s, `id_mascota`=%s, `especie`=%s, `raza`=%s, `tamaño`=%s, `peso_actual`=%s, `color`=%s, `genero`=%s, `fecha_nac`=%s, `estado`=%s, `vacunas_dadas`=%s, `nombre_dueño`=%s, `apellido_dueño`=%s, `direccion`=%s,WHERE `telefono`=%s;"
+    sql ="UPDATE `pacientesvet`SET `nombreMascota`=%s, `idMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,WHERE `telefono`=%s;"
     
     datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,id)
     conn= mysql.connect()
@@ -135,7 +132,7 @@ def update():
         cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
         conn.commit()
 
-    return redirect('/')'''
+    return redirect('/')
 
 if __name__=='__main__':
     app.run(debug=True)
