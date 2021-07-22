@@ -99,13 +99,13 @@ def update():
     _id=request.form['idForm']
     _especie=request.form['especie']
     _raza=request.form['raza']
-    _tamaño=request.form['tamaño']
+    _tamano=request.form['tamano']
     _genero=request.form['genero']
     _peso=request.form['peso']
     _color=request.form['colorForm']
     _fechaNac=request.form['fechaNac']
-    _nombreDueño=request.form['nombreDueño']
-    _apellidoDueño=request.form['apellidoDueño']
+    _nombreDueno=request.form['nombreDueño']
+    _apellidoDueno=request.form['apellidoDueño']
     _direccion=request.form['direccion']
     _tel=request.form['tel']
     _estado=request.form['estado']
@@ -114,7 +114,7 @@ def update():
 
     sql ="UPDATE `pacientesvet`SET `nombreMascota`=%s, `idMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,WHERE `telefono`=%s;"
     
-    datos=(_nombre,_id,_especie,_raza,_tamaño,_genero,_peso,_color,_fechaNac,_nombreDueño,_apellidoDueño,_direccion,_tel,_estado,id)
+    datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,id)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)
