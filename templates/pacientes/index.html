@@ -18,9 +18,7 @@
             <th>Nombre</th>
             <th>Id.</th>
             <th>Especie</th>
-            
             <th>Apellido del dueño</th>
-            
             <th>Teléfono</th>
             <th>Estado</th>
             <th>Foto</th>
@@ -33,17 +31,16 @@
             <td>{{ m[0] }}</td>
             <td>{{ m[1] }}</td>
             <td>{{ m[2] }}</td>
-            <td>{{ m[3] }}</td>
-            
+            <td>{{ m[11] }}</td>
             <td>{{ m[13] }}</td>
-            
             <td>{{ m[9] }}</td>
             <td>
                 <img class="img-thumbnail" src="uploads/{{ m[14] }}" width="100">   
             </td>
             <td>
-                <a onclick="return confirm('Desea eliminar el paciente?')" class="btn btn-danger" href="/destroy/{{ m[0] }}" text="Eliminar"><i class="fas fa-backspace"></i></a>  
                 <a onclick="return confirm('Desea modificar el paciente?')" class="btn btn-warming" href="/edit/{{ m[0] }}" text="Editar"><i class="fas fa-edit"></i></a>
+                <a onclick="return confirm('Desea eliminar el paciente?')" class="btn btn-danger" href="/destroy/{{ m[0] }}" text="Eliminar"><i class="fas fa-backspace"></i></a>  
+                
             </td>
         </tr>
     {% endfor %}
