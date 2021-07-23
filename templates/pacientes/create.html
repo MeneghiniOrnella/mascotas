@@ -29,7 +29,6 @@
           </ul>
         </div>
       </nav>
-<br>
 {% with messages= get_flashed_messages() %}
 {% if messages %}
     <div class="alert alert-danger" role="alert">
@@ -39,11 +38,7 @@
     </div>
 {% endif %}
     <form method="post" action="/store" enctype="multipart/form-data">
-        
         <div class="card">
-            <div class="card-header">
-                Ingresar datos del paciente
-            </div>
             <div class="card-body">
                 <h5 class="card-title">Datos del paciente</h5>
                 <p class="card-text">
@@ -137,9 +132,9 @@
         </div>
     </form>
     {% endwith %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+          <ul class="navbar-nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
             </li>
