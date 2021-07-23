@@ -10,7 +10,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<a href="{{url_for('create')}}" class="btn btn-success">Ingresa nuevo paciente</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{url_for('index')}}"><i class="fas fa-paw"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link text-success" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('create')}}">Nuevo paciente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 <br>
 <table class="table table-striped">
     <thead class="thead-light">
@@ -44,5 +62,22 @@
         </tr>
     {% endfor %}
     </tbody>
+</table>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/MeneghiniOrnella/mascotas"><i class="fab fa-github-alt"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Cecilia Ornella Meneghini <i class="fab fa-linkedin"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 </body>
 </html>

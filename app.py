@@ -73,8 +73,8 @@ def storage():
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
     
-    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,(yyyyMMdd),%s);"
-    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado)    
+    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`,`nombreDueno`,`apellidoDueno`,`direccion`,`telefono`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,(yyyyMMdd),%s,%s,%s,%s);"
+    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel)    
     """ sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`, `id`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`,`estado`,`foto`) VALUES (%s,null,%s,%s,%s,%d,%s,%s,%s,%s,%s,%s,%d,%s,%s)"
     datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename) """
     conn= mysql.connect()
@@ -116,7 +116,7 @@ def update():
         conn.commit()
     id=request.form['idForm']
     sql ="UPDATE `pacientesvet`.`pacientesvet` SET `nombreMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,`telefono`=%s, WHERE id=%s;"
-    datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto,id)
+    datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,id)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)
