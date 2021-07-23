@@ -28,15 +28,8 @@ def index():
     conn.commit()
     return render_template('pacientes/index.html',mascotitas=mascotitas)
 
-@app.route("/view/<int:id>")
+@app.route("/view")
 def view():
-    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
-    conn=mysql.connect()
-    cursor=conn.cursor()
-    cursor.execute(sql,(id))
-    mascotitas=cursor.fetchall() 
-    print (mascotitas)
-    conn.commit()
     return render_template('pacientes/view.html')
 
 @app.route('/destroy/<int:id>')
@@ -80,14 +73,11 @@ def storage():
     _foto=request.files['foto']
     now=datetime.now()
     tiempo=now.strftime("%Y%H%M%S")
-    if _foto.filename=='':
+    if _foto.filename !='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
-    
-    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`,`nombreDueno`,`apellidoDueno`,`direccion`,`telefono`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,(yyyyMMdd),%s,%s,%s,%s);"
-    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel)    
-    """ sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`, `id`, `especie`, `raza`, `tamano`, `peso`, `color`, `genero`, `nombreDueno`, `apellidoDueno`, `direccion`, `telefono`,`estado`,`foto`) VALUES (%s,null,%s,%s,%s,%d,%s,%s,%s,%s,%s,%s,%d,%s,%s)"
-    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,_foto.filename) """
+    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`,`nombreDueno`,`apellidoDueno`,`direccion`,`telefono`,`foto`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel,nuevoNombreFoto)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)

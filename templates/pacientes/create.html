@@ -44,14 +44,13 @@
                 <p class="card-text">
 
                     <div class="form-group">
-                        <label for="nombreForm">Nombre</label>
-                        <input id="nombreForm" class="form-control" type="text" name="nombreForm" required>
-                        
+                        <label for="nombreForm">Nombre<a style="color:#FF0000";>*</a></label>
+                        <input id="nombreForm" class="form-control" type="text" name="nombreForm" required>   
                     </div>
                     <div class="row">
                         <div class="form-group col">
-                            <label for="especie">Especie</label>
-                            <input id="especie" class="form-control" type="text" name="especie">
+                            <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
+                            <input id="especie" class="form-control" type="text" name="especie" required>
                         </div>
                         <div class="form-group col">
                             <label for="raza">Raza</label>
@@ -87,8 +86,8 @@
                             </select>
                         </div>
                         <div class="form-group col">
-                            <label for="fechaNac">Fecha de nacimiento</label>
-                            <input id="fechaNac" class="form-control" type="date" name="fechaNac">
+                            <label for="fechaNac">Año de nacimiento</label>
+                            <input id="fechaNac" class="form-control" type="number" name="fechaNac">
                         </div>
                         <div class="form-group col">
                             <label for="estado">Estado</label>
