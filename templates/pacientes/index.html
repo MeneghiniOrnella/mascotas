@@ -56,8 +56,9 @@
                 <img class="img-thumbnail" src="uploads/{{ m[14] }}" width="100">   
             </td>
             <td>
-                <a class="btn btn-warming" href="/edit/{{ m[1] }}" text="Editar"><i class="fas fa-edit"></i></a>
-                <a href="/destroy/{{ m[1] }}" class="btn btn-danger"><i class="fas fa-backspace"></i></a> 
+                <a href="/view/{{ m[1] }}" class="btn btn-warming" title="Ver ficha completa"><i class="fas fa-sign-in-alt"></i></a>
+                <a class="btn btn-warming" href="/edit/{{ m[1] }}" title="Editar"><i class="fas fa-edit"></i></a>
+                <a href="/destroy/{{ m[1] }}" class="btn btn-danger" title="Eliminar"><i class="fas fa-backspace"></i></a> 
             </td>
         </tr>
     {% endfor %}

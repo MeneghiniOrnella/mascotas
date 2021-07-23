@@ -46,7 +46,7 @@ def edit():
     sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute(sql,)
+    cursor.execute(sql,(id))
     mascotitas=cursor.fetchall()
     print(mascotitas)
     return render_template('pacientes/edit.html',mascotitas=mascotitas)
@@ -90,7 +90,7 @@ def uploads(nombreFoto):
 @app.route('/update', methods=['POST'])
 def update():
     _nombre=request.form['nombreForm']
-    _id=request.form['idForm']
+    _id=request.form['id']
     _especie=request.form['especie']
     _raza=request.form['raza']
     _tamano=request.form['tamano']
@@ -106,15 +106,15 @@ def update():
     _foto=request.flies['foto']
     now=datetime.now()
     tiempo=now.strftime("%Y%H%M%S")
-    if _foto.filename !='':
+    '''if _foto.filename !='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
         cursor.execute("SELECT foto FROM `pacientesvet`.`pacientesvet` WHERE id=%s",(id))
         fila= cursor.fetchall()
         os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
         cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
-        conn.commit()
-    id=request.form['idForm']
+        conn.commit()'''
+    id=request.form['id']
     sql ="UPDATE `pacientesvet`.`pacientesvet` SET `nombreMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,`telefono`=%s, WHERE id=%s;"
     datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,id)
     conn= mysql.connect()
