@@ -28,12 +28,23 @@ def index():
     conn.commit()
     return render_template('pacientes/index.html',mascotitas=mascotitas)
 
+@app.route("/view/<int:id>")
+def view():
+    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
+    conn=mysql.connect()
+    cursor=conn.cursor()
+    cursor.execute(sql,(id))
+    mascotitas=cursor.fetchall() 
+    print (mascotitas)
+    conn.commit()
+    return render_template('pacientes/view.html')
+
 @app.route('/destroy/<int:id>')
 def destroy(id):
     sql="DELETE FROM `pacientesvet`.`pacientesvet` WHERE id=%s;"
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute(sql,(id))
+    cursor.execute(sql,id)
     conn.commit()
     return redirect('/')
 
@@ -46,7 +57,7 @@ def edit():
     sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute(sql,(id))
+    cursor.execute(sql,id)
     mascotitas=cursor.fetchall()
     print(mascotitas)
     return render_template('pacientes/edit.html',mascotitas=mascotitas)

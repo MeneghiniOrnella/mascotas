@@ -31,7 +31,90 @@
       </nav>
 <br>
 
+<form method="post" action="/store" enctype="multipart/form-data">
+    <div class="card">
+        {% for m in mascotitas %} 
+        <div class="card-body">
+            <h5 class="card-title">Datos del paciente</h5>
+            <p class="card-text">
 
+                <div class="form-group">
+                    <label for="nombreForm">Nombre</label>
+                    <label id="nombreForm" class="form-control" type="text" name="nombreForm" required>{{ m[0] }}</label>
+                    
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="especie">Especie</label>
+                        <label id="especie" class="form-control" type="text" name="especie">{{ m[2] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="raza">Raza</label>
+                        <label id="raza" class="form-control" type="text" name="raza">{{ m[3] }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="tamano">Tamaño</label>
+                        <label id="tamano" class="form-control" name="tamano">{{ m[4] }}</label>
+                    </div>
+                    
+                    <div class="form-group col">
+                        <label for="peso">Peso en Kg.</label>
+                        <label id="peso" class="form-control" type="number" name="peso">{{ m[5] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="colorForm">Color</label>
+                        <label id="colorForm" class="form-control" type="text" name="colorForm">{{ m[6] }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="genero">Sexo</label>
+                        <label id="genero" class="form-control" name="genero">{{ m[7] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="fechaNac">Fecha de nacimiento</label>
+                        <label id="fechaNac" class="form-control" type="date" name="fechaNac">{{ m[8] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="estado">Estado</label>
+                        <label id="estado" class="form-control" name="estado">{{ m[9] }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="nombreDueno">Nombre del dueño</label>
+                        <label id="nombreDueno" class="form-control" type="text" name="nombreDueno">{{ m[10] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="apellidoDueno">Apellido del dueño</label>
+                        <label id="apellidoDueno" class="form-control" type="text" name="apellidoDueno">{{ m[11] }}</label>
+                    </div>
+                    <div class="form-group col">
+                        <label for="direccion">Dirección</label>
+                        <label id="direccion" class="form-control" type="text" name="direccion">{{ m[12] }}</label>
+                    </div>
+
+                    <div class="form-group col">
+                        <label for="telForm">Teléfono</label>
+                        <label id="telForm" class="form-control" type="tel" name="telForm" disabled>{{ m[13] }}</label>
+                    </div>
+                </div>
+                <div class="custom-file">
+                    <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto">
+                    <label class="custom-file-label" for="customFileLang">Elegir foto</label>
+                </div>
+                <p> </p>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Agregar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+        </div> 
+        {% endfor %}
+    </div>
+</form>
 
 </table>
 <br>
