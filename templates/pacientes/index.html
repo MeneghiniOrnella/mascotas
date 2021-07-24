@@ -53,13 +53,15 @@
             <td>{{ m[13] }}</td>
             <td>{{ m[9] }}</td>
             <td>
-                <img class="img-thumbnail" src="uploads/{{ m[14] }}" width="100">   
+                <img class="rounded float-left" src="uploads/{{ m[14] }}" width="100">   
             </td>
             <td>
-                <a href="/view/{{ m[1] }}" class="btn btn-primary" title="Ver ficha completa"><i class="fas fa-sign-in-alt"></i></a>
-                <a class="btn btn-info" href="/edit/{{ m[1] }}" title="Editar"><i class="fas fa-edit"></i></a>
-                <a href="/destroy/{{ m[1] }}" class="btn btn-danger" title="Eliminar"><i class="fas fa-backspace"></i></a> 
-            </td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="/view/{{ m[1] }}" class="btn btn-primary" title="Ver ficha completa"><i class="fas fa-sign-in-alt"></i></a>
+                  <a class="btn btn-info" href="/edit/{{ m[1] }}" title="Editar"><i class="fas fa-edit"></i></a>
+                  <a href="/destroy/{{ m[1] }}" class="btn btn-danger" title="Eliminar"><i class="fas fa-backspace"></i></a> 
+                </div>
+              </td>
         </tr>
     {% endfor %}
     </tbody>

@@ -5,3 +5,7 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
 }
+.img-thumbnail{
+    background-color: blue;
+    border: none;
+}

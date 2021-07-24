@@ -5,6 +5,8 @@ from datetime import datetime
 from flask import send_from_directory
 import os
 
+from pymysql import NULL
+
 app = Flask(__name__)
 
 mysql= MySQL()
@@ -28,32 +30,31 @@ def index():
     conn.commit()
     return render_template('pacientes/index.html',mascotitas=mascotitas)
 
-@app.route("/view")
-def view():
+# botones ver, modificar y eliminar
+@app.route('/view/<int:id>')
+def view(id):
     return render_template('pacientes/view.html')
+
+@app.route('/edit/<int:id>')
+def edit(id):
+    return render_template('pacientes/edit.html')
 
 @app.route('/destroy/<int:id>')
 def destroy(id):
     sql="DELETE FROM `pacientesvet`.`pacientesvet` WHERE id=%s;"
     conn=mysql.connect()
     cursor=conn.cursor()
+    cursor.execute("SELECT foto FROM `pacientesvet`.`pacientesvet` WHERE id=%s",(id))
+    fila=cursor.fetchall()
+    os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
     cursor.execute(sql,id)
     conn.commit()
     return redirect('/')
 
+# boton de crear
 @app.route("/create")
 def create():
     return render_template('pacientes/create.html')
-
-@app.route('/edit/<int:id>')
-def edit():
-    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
-    conn=mysql.connect()
-    cursor=conn.cursor()
-    cursor.execute(sql,id)
-    mascotitas=cursor.fetchall()
-    print(mascotitas)
-    return render_template('pacientes/edit.html',mascotitas=mascotitas)
 
 @app.route("/store", methods=['POST'])
 def storage():
@@ -91,7 +92,7 @@ def uploads(nombreFoto):
 @app.route('/update', methods=['POST'])
 def update():
     _nombre=request.form['nombreForm']
-    _id=request.form['id']
+    id=request.form['id']
     _especie=request.form['especie']
     _raza=request.form['raza']
     _tamano=request.form['tamano']
@@ -107,22 +108,20 @@ def update():
     _foto=request.flies['foto']
     now=datetime.now()
     tiempo=now.strftime("%Y%H%M%S")
-    '''if _foto.filename !='':
+    if _foto.filename !='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
         cursor.execute("SELECT foto FROM `pacientesvet`.`pacientesvet` WHERE id=%s",(id))
         fila= cursor.fetchall()
         os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
-        cursor.execute("UPDATE pacientes_mascotas SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
-        conn.commit()'''
-    id=request.form['id']
-    sql ="UPDATE `pacientesvet`.`pacientesvet` SET `nombreMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,`telefono`=%s, WHERE id=%s;"
-    datos=(_nombre,_id,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,id)
+        cursor.execute("UPDATE pacientesvet SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
+        conn.commit()
+    sql="UPDATE `pacientesvet`.`pacientesvet` SET `nombreMascota`=%s, `especie`=%s, `raza`=%s, `tamano`=%s, `peso`=%s, `color`=%s, `genero`=%s, `fechaNac`=%s, `estado`=%s, `nombreDueno`=%s, `apellidoDueno`=%s, `direccion`=%s,`telefono`=%s, WHERE id=%s;"
+    datos=(_nombre,_especie,_raza,_tamano,_genero,_peso,_color,_fechaNac,_nombreDueno,_apellidoDueno,_direccion,_tel,_estado,id)
     conn= mysql.connect()
     cursor= conn.cursor()
     cursor.execute(sql,datos)
     conn.commit()
-    
     return redirect('/')
 
 if __name__=='__main__':
