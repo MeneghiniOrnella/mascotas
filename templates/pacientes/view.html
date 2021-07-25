@@ -17,8 +17,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('create')}}">Nuevo paciente</a>
@@ -29,105 +29,105 @@
           </ul>
         </div>
     </nav>
-<br>
-<form method="post" action="/store" enctype="multipart/form-data">
-    <div class="card">
-        {% for m in mascotitas %} 
-        <div class="card-body">
-            <h5 class="card-title">Datos del paciente</h5>
-            <p class="card-text">
+    {% for m in mascotitas %}
+      <form method="POST" action="/update" enctype="multipart/form-data">
+        
+            <!-- <input id="nombreForm" class="form-control" type="text" name="nombreForm" value="{{m[5]}}" required>
+    </form>
+    <form method="post" action="/store" enctype="multipart/form-data"> -->
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">Datos del paciente</h5>
+              <p class="card-text">
+                <div class="row">
+                  <div class="form-group col">
+                      <label for="nombreForm">Nombre<a style="color:#FF0000";>*</a></label>
+                      <input id="nombreForm" class="form-control" type="text" name="nombreForm"  value="{{m[0]}}" disabled>   
+                  </div>
+                      <div class="form-group col">
+                          <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
+                          <input id="especie" class="form-control" type="text" name="especie" value="{{m[2]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="raza">Raza</label>
+                          <input id="raza" class="form-control" type="text" name="raza" value="{{m[3]}}" disabled>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group col">
+                          <label for="tamano">Tamaño</label>
+                          <input id="tamano" class="form-control" name="tamano" value="{{m[4]}}" disabled>
+                      </div>
+                      
+                      <div class="form-group col">
+                          <label for="peso">Peso en Kg.</label>
+                          <input id="peso" class="form-control" type="number" name="peso" value="{{m[5]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="colorForm">Color</label>
+                          <input id="colorForm" class="form-control" type="text" name="colorForm" value="{{m[6]}}" disabled>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group col">
+                          <label for="genero">Sexo</label>
+                          <input id="genero" class="form-control" name="genero" value="{{m[7]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="fechaNac">Año de nacimiento</label>
+                          <input id="fechaNac" class="form-control" type="number" name="fechaNac" value="{{m[8]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="estado">Estado</label>
+                          <input id="estado" class="form-control" name="estado" value="{{m[9]}}" disabled>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group col">
+                          <label for="nombreDueno">Nombre del dueño</label>
+                          <input id="nombreDueno" class="form-control" type="text" name="nombreDueno" value="{{m[10]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="apellidoDueno">Apellido del dueño</label>
+                          <input id="apellidoDueno" class="form-control" type="text" name="apellidoDueno" value="{{m[11]}}" disabled>
+                      </div>
+                      <div class="form-group col">
+                          <label for="direccion">Dirección</label>
+                          <input id="direccion" class="form-control" type="text" name="direccion" value="{{m[12]}}" disabled>
+                      </div>
 
-                <div class="form-group">
-                    <label for="nombreForm">Nombre</label>
-                    <label id="nombreForm" class="form-control" type="text" name="nombreForm" required>{{ m[0] }}</label>
-                    
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="especie">Especie</label>
-                        <label id="especie" class="form-control" type="text" name="especie">{{ m[2] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="raza">Raza</label>
-                        <label id="raza" class="form-control" type="text" name="raza">{{ m[3] }}</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="tamano">Tamaño</label>
-                        <label id="tamano" class="form-control" name="tamano">{{ m[4] }}</label>
-                    </div>  
-                    <div class="form-group col">
-                        <label for="peso">Peso en Kg.</label>
-                        <label id="peso" class="form-control" type="number" name="peso">{{ m[5] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="colorForm">Color</label>
-                        <label id="colorForm" class="form-control" type="text" name="colorForm">{{ m[6] }}</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="genero">Sexo</label>
-                        <label id="genero" class="form-control" name="genero">{{ m[7] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="fechaNac">Año de nacimiento</label>
-                        <label id="fechaNac" class="form-control" type="text" name="fechaNac">{{ m[8] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="estado">Estado</label>
-                        <label id="estado" class="form-control" name="estado">{{ m[9] }}</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="nombreDueno">Nombre del dueño</label>
-                        <label id="nombreDueno" class="form-control" type="text" name="nombreDueno">{{ m[10] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="apellidoDueno">Apellido del dueño</label>
-                        <label id="apellidoDueno" class="form-control" type="text" name="apellidoDueno">{{ m[11] }}</label>
-                    </div>
-                    <div class="form-group col">
-                        <label for="direccion">Dirección</label>
-                        <label id="direccion" class="form-control" type="text" name="direccion">{{ m[12] }}</label>
-                    </div>
+                      <div class="form-group col">
+                          <label for="telForm">Teléfono</label>
+                          <input id="telForm" class="form-control" type="tel" name="telForm" value="{{m[13]}}" disabled>
+                      </div>
+                  </div>
+                  <div class="custom-file">
+                      <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto" value="{{m[14]}}" disabled>
+                      <label class="custom-file-label" for="customFileLang">Elegir foto</label>
+                  </div>
+                  <p> </p>
 
-                    <div class="form-group col">
-                        <label for="telForm">Teléfono</label>
-                        <label id="telForm" class="form-control" type="tel" name="telForm" disabled>{{ m[13] }}</label>
-                    </div>
-                </div>
-                <div class="custom-file">
-                    <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto">
-                    <label class="custom-file-label" for="customFileLang">Elegir foto</label>
-                </div>
-                <p> </p>
-
-                <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="Agregar">
+                  <div class="form-group">
                     <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
-                </div>
-        </div> 
-        {% endfor %}
-    </div>
-</form>
-<br>
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
-    <ul class="navbar-nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/MeneghiniOrnella/mascotas"><i class="fab fa-github-alt"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Cecilia Ornella Meneghini <i class="fab fa-linkedin"></i></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+                  </div>
+          </div>
+      </div>
+    </form>
+    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+          <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/MeneghiniOrnella/mascotas"><i class="fab fa-github-alt"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Cecilia Ornella Meneghini <i class="fab fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 </body>
 </html>
