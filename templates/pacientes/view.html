@@ -6,74 +6,74 @@
         <div class="card-body">
             <h5 class="card-title">Datos del paciente</h5>
             <p class="card-text">
-              <div class="row">
+            <div class="row"> 
                 <div class="form-group col">
                     <label for="nombreForm">Nombre<a style="color:#FF0000";>*</a></label>
                     <input id="nombreForm" class="form-control" type="text" name="nombreForm"  value="{{m[0]}}" disabled>   
                 </div>
-                    <div class="form-group col">
-                        <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
-                        <input id="especie" class="form-control" type="text" name="especie" value="{{m[2]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="raza">Raza</label>
-                        <input id="raza" class="form-control" type="text" name="raza" value="{{m[3]}}" disabled>
-                    </div>
+                <div class="form-group col">
+                    <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
+                    <input id="especie" class="form-control" type="text" name="especie" value="{{m[2]}}" disabled>
                 </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="tamano">Tamaño</label>
-                        <input id="tamano" class="form-control" name="tamano" value="{{m[4]}}" disabled>
-                    </div>
-                    
-                    <div class="form-group col">
-                        <label for="peso">Peso en Kg.</label>
-                        <input id="peso" class="form-control" type="number" name="peso" value="{{m[5]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="colorForm">Color</label>
-                        <input id="colorForm" class="form-control" type="text" name="colorForm" value="{{m[6]}}" disabled>
-                    </div>
+                <div class="form-group col">
+                    <label for="raza">Raza</label>
+                    <input id="raza" class="form-control" type="text" name="raza" value="{{m[3]}}" disabled>
                 </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="genero">Sexo</label>
-                        <input id="genero" class="form-control" name="genero" value="{{m[7]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="fechaNac">Año de nacimiento</label>
-                        <input id="fechaNac" class="form-control" type="number" name="fechaNac" value="{{m[8]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="estado">Estado</label>
-                        <input id="estado" class="form-control" name="estado" value="{{m[9]}}" disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="nombreDueno">Nombre del dueño</label>
-                        <input id="nombreDueno" class="form-control" type="text" name="nombreDueno" value="{{m[10]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="apellidoDueno">Apellido del dueño</label>
-                        <input id="apellidoDueno" class="form-control" type="text" name="apellidoDueno" value="{{m[11]}}" disabled>
-                    </div>
-                    <div class="form-group col">
-                        <label for="direccion">Dirección</label>
-                        <input id="direccion" class="form-control" type="text" name="direccion" value="{{m[12]}}" disabled>
-                    </div>
-
-                    <div class="form-group col">
-                        <label for="telForm">Teléfono</label>
-                        <input id="telForm" class="form-control" type="tel" name="telForm" value="{{m[13]}}" disabled>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="tamano">Tamaño</label>
+                    <input id="tamano" class="form-control" name="tamano" value="{{m[4]}}" disabled>
                 </div>
                 
-                <p> </p>
-
-                <div class="form-group">
-                  <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                <div class="form-group col">
+                    <label for="peso">Peso en Kg.</label>
+                    <input id="peso" class="form-control" type="number" name="peso" value="{{m[5]}}" disabled>
                 </div>
+                <div class="form-group col">
+                    <label for="colorForm">Color</label>
+                    <input id="colorForm" class="form-control" type="text" name="colorForm" value="{{m[6]}}" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="genero">Sexo</label>
+                    <input id="genero" class="form-control" name="genero" value="{{m[7]}}" disabled>
+                </div>
+                <div class="form-group col">
+                    <label for="fechaNac">Año de nacimiento</label>
+                    <input id="fechaNac" class="form-control" type="number" name="fechaNac" value="{{m[8]}}" disabled>
+                </div>
+                <div class="form-group col">
+                    <label for="estado">Estado</label>
+                    <input id="estado" class="form-control" name="estado" value="{{m[9]}}" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="nombreDueno">Nombre del dueño</label>
+                    <input id="nombreDueno" class="form-control" type="text" name="nombreDueno" value="{{m[10]}}" disabled>
+                </div>
+                <div class="form-group col">
+                    <label for="apellidoDueno">Apellido del dueño</label>
+                    <input id="apellidoDueno" class="form-control" type="text" name="apellidoDueno" value="{{m[11]}}" disabled>
+                </div>
+                <div class="form-group col">
+                    <label for="direccion">Dirección</label>
+                    <input id="direccion" class="form-control" type="text" name="direccion" value="{{m[12]}}" disabled>
+                </div>
+
+                <div class="form-group col">
+                    <label for="telForm">Teléfono</label>
+                    <input id="telForm" class="form-control" type="tel" name="telForm" value="{{m[13]}}" disabled>
+                </div>
+            </div>
+            
+            <p> </p>
+
+            <div class="form-group">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+            </div>
         </div>
     </div>
   </form>

@@ -89,14 +89,15 @@
                     </div>
                 </div>
                 <div class="custom-file">
-                    <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto">
-                    <label class="custom-file-label" for="customFileLang">Elegir foto</label>
+                    <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto" required>
+                    <label class="custom-file-label" for="customFileLang">Elegir foto<a style="color:#FF0000";>*</a></label>
                 </div>
                 <p> </p>
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-success" value="Agregar">
                     <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                    <p><a style="color:#FF0000";>*</a> Elementos obligatorios de completar.</p>
                 </div>
             </div>
         </div>

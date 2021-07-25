@@ -16,3 +16,6 @@ body{
     border: none;
     image-resolution: 1dpi;   
 }
+input{
+    text-transform: capitalize;
+}
