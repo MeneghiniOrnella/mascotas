@@ -1,133 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PacientesVet</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{url_for('index')}}"><i class="fas fa-paw"></i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-success" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('create')}}">Nuevo paciente</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Contacto</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
-    {% for m in mascotitas %}
-      <form method="POST" action="/update" enctype="multipart/form-data">
-        
-            <!-- <input id="nombreForm" class="form-control" type="text" name="nombreForm" value="{{m[5]}}" required>
-    </form>
-    <form method="post" action="/store" enctype="multipart/form-data"> -->
-      <div class="card">
-          <div class="card-body">
-              <h5 class="card-title">Datos del paciente</h5>
-              <p class="card-text">
+{% include 'header.html' %}
+
+{% for m in mascotitas %}
+    <form method="POST" action="/update" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Datos del paciente</h5>
+            <p class="card-text">
+              <div class="row">
+                <div class="form-group col">
+                    <label for="nombreForm">Nombre<a style="color:#FF0000";>*</a></label>
+                    <input id="nombreForm" class="form-control" type="text" name="nombreForm"  value="{{m[0]}}" disabled>   
+                </div>
+                    <div class="form-group col">
+                        <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
+                        <input id="especie" class="form-control" type="text" name="especie" value="{{m[2]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="raza">Raza</label>
+                        <input id="raza" class="form-control" type="text" name="raza" value="{{m[3]}}" disabled>
+                    </div>
+                </div>
                 <div class="row">
-                  <div class="form-group col">
-                      <label for="nombreForm">Nombre<a style="color:#FF0000";>*</a></label>
-                      <input id="nombreForm" class="form-control" type="text" name="nombreForm"  value="{{m[0]}}" disabled>   
-                  </div>
-                      <div class="form-group col">
-                          <label for="especie">Especie<a style="color:#FF0000";>*</a></label>
-                          <input id="especie" class="form-control" type="text" name="especie" value="{{m[2]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="raza">Raza</label>
-                          <input id="raza" class="form-control" type="text" name="raza" value="{{m[3]}}" disabled>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="form-group col">
-                          <label for="tamano">Tamaño</label>
-                          <input id="tamano" class="form-control" name="tamano" value="{{m[4]}}" disabled>
-                      </div>
-                      
-                      <div class="form-group col">
-                          <label for="peso">Peso en Kg.</label>
-                          <input id="peso" class="form-control" type="number" name="peso" value="{{m[5]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="colorForm">Color</label>
-                          <input id="colorForm" class="form-control" type="text" name="colorForm" value="{{m[6]}}" disabled>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="form-group col">
-                          <label for="genero">Sexo</label>
-                          <input id="genero" class="form-control" name="genero" value="{{m[7]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="fechaNac">Año de nacimiento</label>
-                          <input id="fechaNac" class="form-control" type="number" name="fechaNac" value="{{m[8]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="estado">Estado</label>
-                          <input id="estado" class="form-control" name="estado" value="{{m[9]}}" disabled>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="form-group col">
-                          <label for="nombreDueno">Nombre del dueño</label>
-                          <input id="nombreDueno" class="form-control" type="text" name="nombreDueno" value="{{m[10]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="apellidoDueno">Apellido del dueño</label>
-                          <input id="apellidoDueno" class="form-control" type="text" name="apellidoDueno" value="{{m[11]}}" disabled>
-                      </div>
-                      <div class="form-group col">
-                          <label for="direccion">Dirección</label>
-                          <input id="direccion" class="form-control" type="text" name="direccion" value="{{m[12]}}" disabled>
-                      </div>
+                    <div class="form-group col">
+                        <label for="tamano">Tamaño</label>
+                        <input id="tamano" class="form-control" name="tamano" value="{{m[4]}}" disabled>
+                    </div>
+                    
+                    <div class="form-group col">
+                        <label for="peso">Peso en Kg.</label>
+                        <input id="peso" class="form-control" type="number" name="peso" value="{{m[5]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="colorForm">Color</label>
+                        <input id="colorForm" class="form-control" type="text" name="colorForm" value="{{m[6]}}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="genero">Sexo</label>
+                        <input id="genero" class="form-control" name="genero" value="{{m[7]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="fechaNac">Año de nacimiento</label>
+                        <input id="fechaNac" class="form-control" type="number" name="fechaNac" value="{{m[8]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="estado">Estado</label>
+                        <input id="estado" class="form-control" name="estado" value="{{m[9]}}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="nombreDueno">Nombre del dueño</label>
+                        <input id="nombreDueno" class="form-control" type="text" name="nombreDueno" value="{{m[10]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="apellidoDueno">Apellido del dueño</label>
+                        <input id="apellidoDueno" class="form-control" type="text" name="apellidoDueno" value="{{m[11]}}" disabled>
+                    </div>
+                    <div class="form-group col">
+                        <label for="direccion">Dirección</label>
+                        <input id="direccion" class="form-control" type="text" name="direccion" value="{{m[12]}}" disabled>
+                    </div>
 
-                      <div class="form-group col">
-                          <label for="telForm">Teléfono</label>
-                          <input id="telForm" class="form-control" type="tel" name="telForm" value="{{m[13]}}" disabled>
-                      </div>
-                  </div>
-                  <div class="custom-file">
-                      <input id="foto" type="file" class="custom-file-input" id="customFileLang" lang="es" name="foto" value="{{m[14]}}" disabled>
-                      <label class="custom-file-label" for="customFileLang">Elegir foto</label>
-                  </div>
-                  <p> </p>
+                    <div class="form-group col">
+                        <label for="telForm">Teléfono</label>
+                        <input id="telForm" class="form-control" type="tel" name="telForm" value="{{m[13]}}" disabled>
+                    </div>
+                </div>
+                
+                <p> </p>
 
-                  <div class="form-group">
-                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
-                  </div>
-          </div>
-      </div>
-    </form>
-    {% endfor %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
-          <ul class="navbar-nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/MeneghiniOrnella/mascotas"><i class="fab fa-github-alt"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/ornella-meneghini/">Cecilia Ornella Meneghini <i class="fab fa-linkedin"></i></a>
-            </li>
-          </ul>
+                <div class="form-group">
+                  <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
         </div>
-      </nav>
-</body>
-</html>
+    </div>
+  </form>
+{% endfor %}
+
+{% include 'footer.html' %}
