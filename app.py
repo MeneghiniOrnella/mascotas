@@ -11,9 +11,9 @@ app = Flask(__name__)
 
 mysql= MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
-app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']=''
-app.config['MYSQL_DATABASE_Db']='pacientesvet'
+app.config['MYSQL_DATABASE_USER']='LEj2tGrbzU'
+app.config['MYSQL_DATABASE_PASSWORD']='h7Is6gOCSB'
+app.config['MYSQL_DATABASE_Db']='LEj2tGrbzU'
 mysql.init_app(app)
 
 CARPETA= os.path.join('uploads')
@@ -21,11 +21,11 @@ app.config['CARPETA']=CARPETA
 
 @app.route('/')
 def index():
-    sql="SELECT * FROM `pacientesvet`.`pacientesvet`;"
+    sql="SELECT * FROM `LEj2tGrbzU`.`pacientesvet`;"
     conn=mysql.connect()
     cursor=conn.cursor()
     cursor.execute(sql)
-    mascotitas=cursor.fetchall() 
+    mascotitas=cursor.fetchall()
     print (mascotitas)
     conn.commit()
     return render_template('pacientes/index.html',mascotitas=mascotitas)
@@ -34,7 +34,7 @@ def index():
 def view(id):
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute("SELECT * FROM pacientesvet.pacientesvet WHERE id=%s",(id))
+    cursor.execute("SELECT * FROM LEj2tGrbzU.pacientesvet WHERE id=%s",(id))
     mascotitas=cursor.fetchall()
     conn.commit()
     return render_template('pacientes/view.html',mascotitas=mascotitas)
@@ -85,7 +85,7 @@ def storage():
     if _foto.filename !='':
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
-    sql="INSERT INTO `pacientesvet`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`,`nombreDueno`,`apellidoDueno`,`direccion`,`telefono`,`foto`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+    sql="INSERT INTO `LEj2tGrbzU`.`pacientesvet` (`nombreMascota`,`especie`,`raza`,`tamano`,`peso`,`color`,`genero`,`fechaNac`,`estado`,`nombreDueno`,`apellidoDueno`,`direccion`,`telefono`,`foto`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
     datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel,nuevoNombreFoto)
     conn= mysql.connect()
     cursor= conn.cursor()
