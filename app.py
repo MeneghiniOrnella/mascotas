@@ -10,7 +10,7 @@ from pymysql import NULL
 app = Flask(__name__)
 
 mysql= MySQL()
-app.config['MYSQL_DATABASE_HOST']='localhost'
+app.config['MYSQL_DATABASE_HOST']='remotemysql.com'
 app.config['MYSQL_DATABASE_USER']='LEj2tGrbzU'
 app.config['MYSQL_DATABASE_PASSWORD']='h7Is6gOCSB'
 app.config['MYSQL_DATABASE_Db']='LEj2tGrbzU'
@@ -43,17 +43,17 @@ def view(id):
 def edit(id):
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute("SELECT * FROM pacientesvet.pacientesvet WHERE id=%s",(id))
+    cursor.execute("SELECT * FROM LEj2tGrbzU.pacientesvet WHERE id=%s",(id))
     mascotitas=cursor.fetchall()
     conn.commit()
     return render_template('pacientes/edit.html',mascotitas=mascotitas)
 
 @app.route('/destroy/<int:id>')
 def destroy(id):
-    sql="DELETE FROM `pacientesvet`.`pacientesvet` WHERE id=%s;"
+    sql="DELETE FROM `LEj2tGrbzU`.`pacientesvet` WHERE id=%s;"
     conn=mysql.connect()
     cursor=conn.cursor()
-    cursor.execute("SELECT foto FROM `pacientesvet`.`pacientesvet` WHERE id=%s",(id))
+    cursor.execute("SELECT foto FROM `LEj2tGrbzU`.`pacientesvet` WHERE id=%s",(id))
     fila=cursor.fetchall()
     os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
     cursor.execute(sql,id)
@@ -124,7 +124,7 @@ def update():
         os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
         cursor.execute("UPDATE pacientesvet SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
         conn.commit()'''
-    sql="UPDATE `pacientesvet`.`pacientesvet` SET `nombreMascota`=%s,`especie`=%s,`raza`=%s,`tamano`=%s,`peso`=%s,`color`=%s,`genero`=%s,`fechaNac`=%s,`estado`=%s,`nombreDueno`=%s,`apellidoDueno`=%s,`direccion`=%s,`telefono`=%s WHERE id=%s;"
+    sql="UPDATE `LEj2tGrbzU`.`pacientesvet` SET `nombreMascota`=%s,`especie`=%s,`raza`=%s,`tamano`=%s,`peso`=%s,`color`=%s,`genero`=%s,`fechaNac`=%s,`estado`=%s,`nombreDueno`=%s,`apellidoDueno`=%s,`direccion`=%s,`telefono`=%s WHERE id=%s;"
     datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel,id)
     conn=mysql.connect()
     cursor=conn.cursor()
