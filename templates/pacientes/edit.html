@@ -84,17 +84,19 @@
                       <input id="telForm" class="form-control" type="number" name="telForm" value="{{m[13]}}">
                   </div>
               </div>
-              <!-- <div class="custom-file">
+              <div class="custom-file">
                   <br>
                   <img class="<img class="img-thumbnail" src="{{ url_for('uploads',nombreFoto=m[14]) }}" width="100">
                   <br>
                   <input type="file" name="foto" id="foto">
-              </div> -->
+                  <label class="custom-file-label" for="customFileLang">Elegir foto<a style="color:#00ffff";>*</a></label>
+              </div>
               <p> </p>
 
               <div class="form-group">
                   <input type="submit" class="btn btn-success" value="Agregar" href="{{url_for('index')}}">
                   <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                  <p><a style="color:#00ffff";>*</a> No completar este elemento, o perderá la imagen.</p>
               </div>
       </div>
   </div>

@@ -124,8 +124,8 @@ def update():
         os.remove(os.path.join(app.config['CARPETA'],fila[0][0]))
         cursor.execute("UPDATE pacientesvet SET foto=%s WHERE id=%s",(nuevoNombreFoto,id))
         conn.commit()'''
-    sql="UPDATE `LEj2tGrbzU`.`pacientesvet` SET `nombreMascota`=%s,`especie`=%s,`raza`=%s,`tamano`=%s,`peso`=%s,`color`=%s,`genero`=%s,`fechaNac`=%s,`estado`=%s,`nombreDueno`=%s,`apellidoDueno`=%s,`direccion`=%s,`telefono`=%s WHERE id=%s;"
-    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel,id)
+    sql="UPDATE `LEj2tGrbzU`.`pacientesvet` SET `nombreMascota`=%s,`especie`=%s,`raza`=%s,`tamano`=%s,`peso`=%s,`color`=%s,`genero`=%s,`fechaNac`=%s,`estado`=%s,`nombreDueno`=%s,`apellidoDueno`=%s,`direccion`=%s,`telefono`=%s,`foto`=%s WHERE id=%s;"
+    datos=(_nombre,_especie,_raza,_tamano,_peso,_color,_genero,_fechaNac,_estado,_nombreDueno,_apellidoDueno,_direccion,_tel,_foto,id)
     conn=mysql.connect()
     cursor=conn.cursor()
     cursor.execute(sql,datos)
